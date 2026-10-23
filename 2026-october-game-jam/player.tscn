@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bgrtdu5hkx0f" path="res://icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://player.gd" id="1_onrkg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(125, 126)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 192.02344
 
 [node name="Player" type="CharacterBody2D" unique_id=1816450137]
 script = ExtResource("1_onrkg")
@@ -12,4 +16,11 @@ script = ExtResource("1_onrkg")
 texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965691915]
-shape = SubResource("CircleShape2D_g4v7s")
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_57qmd")
+debug_color = Color(0.29264665, 0.62978876, 0, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1088050337]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=92701900]
+shape = SubResource("CircleShape2D_yf5fn")
