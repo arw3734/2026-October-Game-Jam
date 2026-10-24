@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b4ei8y1swima1"]
+
+[ext_resource type="Script" uid="uid://dgposcvvwbmv1" path="res://ui.gd" id="1_fyqef"]
+
+[node name="UI" type="Control" unique_id=2143664663 node_paths=PackedStringArray("time_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyqef")
+time_label = NodePath("Time")
+
+[node name="Time" type="Label" parent="." unique_id=154113445]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.3760002
+anchor_bottom = 1.0
+offset_left = 631.0
+offset_top = 34.0
+offset_right = 569.95996
+offset_bottom = 17.0
+text = "12:00"

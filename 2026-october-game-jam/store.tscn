@@ -3,30 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://j48pi1tis2ds" path="res://player.tscn" id="1_c176v"]
 [ext_resource type="Script" uid="uid://bsnkfxu673wiy" path="res://store.gd" id="1_x7ts4"]
 [ext_resource type="PackedScene" uid="uid://davspuhu65btt" path="res://state.tscn" id="3_s3f3m"]
+[ext_resource type="PackedScene" uid="uid://b4ei8y1swima1" path="res://ui.tscn" id="4_s3f3m"]
 
-[node name="Store" type="Node2D" unique_id=747581114 node_paths=PackedStringArray("time_label", "state")]
+[node name="Store" type="Node2D" unique_id=747581114]
 script = ExtResource("1_x7ts4")
-time_label = NodePath("UI/Time")
-state = NodePath("State")
 
 [node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
 position = Vector2(483, 278)
 
 [node name="State" parent="." unique_id=940971249 instance=ExtResource("3_s3f3m")]
 
-[node name="UI" type="Control" parent="." unique_id=226907524]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Time" type="Label" parent="UI" unique_id=1170156033]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 3.3760002
-anchor_bottom = 1.0
-offset_left = 631.0
-offset_top = 34.0
-offset_right = 569.95996
-offset_bottom = 17.0
-text = "12:00"
+[node name="UI" parent="." unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
+state = NodePath("../State")
