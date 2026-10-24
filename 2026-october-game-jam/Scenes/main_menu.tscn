@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cc01hbgcim1hh"]
 
-[ext_resource type="Texture2D" uid="uid://bsr2uwtjmxrbv" path="res://Sprites/UI/Title Screen.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bsl386s2s8ynn" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://bsr2uwtjmxrbv" path="res://Sprites/UI/Title Screen.png" id="2_1ehe0"]
 
 [node name="Main Menu" type="Control" unique_id=904375385]
 layout_mode = 3
@@ -9,12 +10,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48xlc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=309296620]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_06t4h")
+texture = ExtResource("2_1ehe0")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1025381525]
 layout_mode = 1
@@ -49,14 +51,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Game yeah"
 
-[node name="Button" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1762077340]
+[node name="Play" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1762077340]
 layout_mode = 2
 text = "Play"
 
-[node name="Button2" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=900333878]
+[node name="Controls" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=900333878]
 layout_mode = 2
 text = "Controls"
 
-[node name="Button3" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=812350281]
+[node name="Exit" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=812350281]
 layout_mode = 2
 text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
