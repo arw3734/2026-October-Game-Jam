@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://hvhjph41ttoa" path="res://Sprites/Cat/cat.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://d3gb7obsqou7k" path="res://white.jpg" id="3_6t5aa"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f3gkj"]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
 size = Vector2(48, 19)
@@ -21,6 +25,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1816450137 node_paths=PackedStringArray("sprite", "camera")]
+material = SubResource("CanvasItemMaterial_f3gkj")
 collision_mask = 7
 script = ExtResource("1_cvnsp")
 sprite = NodePath("Sprite")
@@ -38,6 +43,7 @@ position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=225016286]
+use_parent_material = true
 position = Vector2(0, -23)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
@@ -47,3 +53,8 @@ animation = &"idle"
 position = Vector2(0, -33)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1799939933]
+position = Vector2(-1.9999962, -16.999996)
+scale = Vector2(2.00875, 1.6250001)
+energy = 0.54
+shadow_enabled = true
+texture = ExtResource("3_6t5aa")

@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dqwj4x5kw08wj" path="res://Sprites/Person/angry_person.png" id="2_gy353"]
 [ext_resource type="Script" uid="uid://b2imloim5ojj6" path="res://Scripts/state_machine.gd" id="3_higb5"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v7s"]
+light_mode = 2
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3qlke"]
 load_path = "res://.godot/imported/person.png-914b8e2d2fe684f55a281c82398b78fd.ctex"
 
@@ -33,12 +36,14 @@ radius = 241.53053
 size = Vector2(46.000004, 40)
 
 [node name="Person" type="CharacterBody2D" unique_id=1143240551 node_paths=PackedStringArray("sprite")]
+material = SubResource("CanvasItemMaterial_g4v7s")
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_wrnb3")
 sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=867173411]
+use_parent_material = true
 position = Vector2(0, -74)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")

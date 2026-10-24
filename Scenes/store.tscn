@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://j48pi1tis2ds" path="res://Scenes/player.tscn" id="1_c176v"]
 [ext_resource type="Script" uid="uid://bsnkfxu673wiy" path="res://Scripts/store.gd" id="1_x7ts4"]
-[ext_resource type="PackedScene" uid="uid://b8pw7q6gt7ulw" path="res://Scenes/vision_manager.tscn" id="2_a54sg"]
+[ext_resource type="Texture2D" uid="uid://2nt22cmrp3n4" path="res://artwork_1.jpg" id="2_a54sg"]
 [ext_resource type="PackedScene" uid="uid://davspuhu65btt" path="res://Scenes/state.tscn" id="3_s3f3m"]
 [ext_resource type="PackedScene" uid="uid://b4ei8y1swima1" path="res://Scenes/ui.tscn" id="4_s3f3m"]
 [ext_resource type="PackedScene" uid="uid://5skxgpmgy8pt" path="res://Scenes/person.tscn" id="5_jdgcu"]
@@ -26,11 +26,15 @@ parsed_geometry_type = 1
 parsed_collision_mask = 4294901762
 agent_radius = 16.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
+polygon = PackedVector2Array(597, 224, 596, 475, 721, 475, 724, 222)
+
 [node name="Store" type="Node2D" unique_id=747581114]
 script = ExtResource("1_x7ts4")
 
-[node name="VisionManager" parent="." unique_id=1703398673 node_paths=PackedStringArray("player") instance=ExtResource("2_a54sg")]
-player = NodePath("../Player")
+[node name="Artwork1" type="Sprite2D" parent="." unique_id=508578759]
+position = Vector2(649, 417)
+texture = ExtResource("2_a54sg")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=986812265 groups=["nav_obstacles"]]
 
@@ -50,7 +54,7 @@ position = Vector2(325, 553)
 navigation_polygon = SubResource("NavigationPolygon_riqys")
 
 [node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
-position = Vector2(434, 299)
+position = Vector2(462, 535)
 
 [node name="UI" parent="Player" unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
 offset_left = -434.0
@@ -79,3 +83,6 @@ position = Vector2(1061, 125)
 position = Vector2(1038, 604)
 
 [node name="Rats" type="Node2D" parent="." unique_id=1229121753]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1914758041]
+occluder = SubResource("OccluderPolygon2D_g4v7s")
