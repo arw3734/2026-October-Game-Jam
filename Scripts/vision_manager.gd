@@ -13,4 +13,3 @@ func has_line_of_sight(from_pos: Vector2,to_pos: Vector2) -> bool:
 func _physics_process(_delta: float) -> void:
 	for npc in get_tree().get_nodes_in_group("enemies"):
 		npc.visible = has_line_of_sight(player.global_position,npc.global_position)
-		print(npc)

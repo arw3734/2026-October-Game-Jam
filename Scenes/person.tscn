@@ -62,5 +62,3 @@ sprite = NodePath("../AnimatedSprite2D")
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.06738325, 0.6462446, 0.20327428, 0.41960785)
-
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
