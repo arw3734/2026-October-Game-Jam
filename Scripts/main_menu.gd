@@ -1,9 +1,6 @@
 extends Control
 
 
-func _ready() -> void:
-	pass
-
 func _on_play_pressed() -> void:
 	var game = preload("res://Scenes/store.tscn").instantiate();
 	
@@ -12,3 +9,13 @@ func _on_play_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_pet_button_pressed() -> void:
+	$MeowBox.show()
+	$PetButton/petTimer.start()
+	print("a")
+
+
+func _on_pet_timer_timeout() -> void:
+	$MeowBox.hide()
