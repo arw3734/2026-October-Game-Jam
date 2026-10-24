@@ -6,7 +6,7 @@ extends Node2D
 
 var rat_nav_map: RID
 
-const RAT_SCENE = preload("res://rat.tscn")
+const RAT_SCENE = preload("res://Scenes/rat.tscn")
 
 func spawn_rat(position: Vector2) -> void:
 	var rat = RAT_SCENE.instantiate()

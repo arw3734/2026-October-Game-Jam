@@ -45,3 +45,5 @@ animation = &"idle"
 
 [node name="Camera" type="Camera2D" parent="." unique_id=146152851]
 position = Vector2(0, -33)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1799939933]
