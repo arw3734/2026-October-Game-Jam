@@ -21,6 +21,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1816450137 node_paths=PackedStringArray("sprite", "camera")]
+collision_mask = 7
 script = ExtResource("1_cvnsp")
 sprite = NodePath("Sprite")
 camera = NodePath("Camera")

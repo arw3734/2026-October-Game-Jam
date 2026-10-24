@@ -2,21 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://j48pi1tis2ds" path="res://Scenes/player.tscn" id="1_c176v"]
 [ext_resource type="Script" uid="uid://bsnkfxu673wiy" path="res://Scripts/store.gd" id="1_x7ts4"]
+[ext_resource type="PackedScene" uid="uid://b8pw7q6gt7ulw" path="res://Scenes/vision_manager.tscn" id="2_a54sg"]
 [ext_resource type="PackedScene" uid="uid://davspuhu65btt" path="res://Scenes/state.tscn" id="3_s3f3m"]
 [ext_resource type="PackedScene" uid="uid://b4ei8y1swima1" path="res://Scenes/ui.tscn" id="4_s3f3m"]
 [ext_resource type="PackedScene" uid="uid://5skxgpmgy8pt" path="res://Scenes/person.tscn" id="5_jdgcu"]
+[ext_resource type="PackedScene" uid="uid://lawxpndi3k58" path="res://Scenes/obstacle.tscn" id="6_m7h4d"]
 
 [node name="Store" type="Node2D" unique_id=747581114]
 script = ExtResource("1_x7ts4")
 
+[node name="VisionManager" parent="." unique_id=1703398673 node_paths=PackedStringArray("player") instance=ExtResource("2_a54sg")]
+player = NodePath("../Player")
+
 [node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
-position = Vector2(483, 278)
+position = Vector2(434, 299)
 
 [node name="State" parent="." unique_id=940971249 instance=ExtResource("3_s3f3m")]
 
 [node name="UI" parent="." unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
 state = NodePath("../State")
 
-[node name="Person" parent="." unique_id=1143240551 node_paths=PackedStringArray("player") instance=ExtResource("5_jdgcu")]
+[node name="Person" parent="." unique_id=1143240551 node_paths=PackedStringArray("player") groups=["enemies"] instance=ExtResource("5_jdgcu")]
 position = Vector2(963, 279)
 player = NodePath("../Player")
+
+[node name="Obstacle" parent="." unique_id=1974016665 instance=ExtResource("6_m7h4d")]
+position = Vector2(658, 286)
