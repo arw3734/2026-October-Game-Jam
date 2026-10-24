@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j48pi1tis2ds"]
 
 [ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://hvhjph41ttoa" path="res://Sprites/Cat/cat.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://cekx1ejhrux7p" path="res://Sprites/Cat/Cat_sheet.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://d3gb7obsqou7k" path="res://white.jpg" id="3_6t5aa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f3gkj"]
@@ -13,14 +13,56 @@ size = Vector2(48, 19)
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 121.016525
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(2000, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(4000, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(0, 2000, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(2000, 2000, 2000, 2000)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6t5aa")
+"texture": SubResource("AtlasTexture_vgqql")
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}],
+"loop": 1,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -47,7 +89,8 @@ use_parent_material = true
 position = Vector2(0, -23)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle"
+animation = &"run"
+frame_progress = 0.98190665
 
 [node name="Camera" type="Camera2D" parent="." unique_id=146152851]
 position = Vector2(0, -33)
