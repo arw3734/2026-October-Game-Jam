@@ -22,8 +22,7 @@ func _process(delta: float):
 	if current_state == STATE.PASSIVE:
 		sprite.play("idle")
 	elif current_state == STATE.AGGRO:
-		var player_direction = get_parent().player.direction
-		get_parent().direction = Vector2(1,0).rotated((get_parent().direction).angle_to(player_direction))
+		#chase code
 		sprite.play("aggro")
 	
 	

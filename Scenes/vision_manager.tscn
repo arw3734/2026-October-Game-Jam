@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8pw7q6gt7ulw"]
+
+[ext_resource type="Script" uid="uid://ddw7m72vl0a11" path="res://Scripts/vision_manager.gd" id="1_bk5id"]
+
+[node name="VisionManager" type="Node2D" unique_id=1703398673]
+script = ExtResource("1_bk5id")
