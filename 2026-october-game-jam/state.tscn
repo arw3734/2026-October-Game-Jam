@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://davspuhu65btt"]
+
+[ext_resource type="Script" uid="uid://dq4jkls6kjkf4" path="res://state.gd" id="1_1c6mt"]
+
+[node name="State" type="Node" unique_id=940971249]
+script = ExtResource("1_1c6mt")
+
+[node name="Time" type="Timer" parent="." unique_id=1792437018]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Time" to="." method="_on_time_timeout"]
