@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+const recover_speed = 2
+const tick_speed = 5
+
 var SPEED = 300.0
 @export var sprite := AnimatedSprite2D
 @export var camera:= Camera2D
@@ -67,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_stamina_tick_timeout() -> void:
-	stamina = max(stamina - 1, 0)
+	stamina = max(stamina - tick_speed, 0)
 	
 	if stamina == 0:
 		can_run = false
@@ -82,4 +85,6 @@ func _on_stamina_cooldown_timeout() -> void:
 
 func _on_stamina_recover_timeout() -> void:
 	if stamina < 100:
-		stamina += 1
+		stamina += recover_speed
+	else:
+		stamina = 100
