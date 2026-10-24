@@ -101,3 +101,17 @@ scale = Vector2(2.00875, 1.6250001)
 energy = 0.54
 shadow_enabled = true
 texture = ExtResource("3_6t5aa")
+
+[node name="StaminaTick" type="Timer" parent="." unique_id=1533607101]
+wait_time = 0.05
+one_shot = true
+
+[node name="StaminaRecover" type="Timer" parent="." unique_id=153966503]
+wait_time = 0.05
+one_shot = true
+
+[node name="StaminaCooldown" type="Timer" parent="." unique_id=42243586]
+
+[connection signal="timeout" from="StaminaTick" to="." method="_on_stamina_tick_timeout"]
+[connection signal="timeout" from="StaminaRecover" to="." method="_on_stamina_recover_timeout"]
+[connection signal="timeout" from="StaminaCooldown" to="." method="_on_stamina_cooldown_timeout"]

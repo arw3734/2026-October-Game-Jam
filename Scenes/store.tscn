@@ -60,10 +60,11 @@ navigation_polygon = SubResource("NavigationPolygon_riqys")
 position = Vector2(462, 535)
 
 [node name="UI" parent="Player" unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
-offset_left = -434.0
-offset_top = -299.0
-offset_right = -434.0
-offset_bottom = -299.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 state = NodePath("../../State")
 
 [node name="Person" parent="." unique_id=1143240551 node_paths=PackedStringArray("player", "patrol_route") groups=["enemies"] instance=ExtResource("5_jdgcu")]
