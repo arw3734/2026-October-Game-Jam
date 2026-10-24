@@ -5,7 +5,7 @@ var current_time: String
 var time_ms: int
 var minutes: String
 var hours: int
-
+@export var rat_nav_region: NavigationRegion2D
 func _ready() -> void:
 	hours = 0
 	minutes = "00"
@@ -22,9 +22,11 @@ func _on_time_timeout() -> void:
 	
 	if time_ms % 75 == 0:
 		hours += 1
+		for i in range(10):
+			var spawn_location = NavigationServer2D.region_get_random_point(rat_nav_region.get_rid(), 1, false)
+			get_parent().spawn_rat(spawn_location)
 	
 	if time_ms < 75:
 		current_time = "12" + ":" + minutes
 	else:
 		current_time = str(hours) + ":" + minutes
-	

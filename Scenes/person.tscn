@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://b2imloim5ojj6" path="res://Scripts/state_machine.gd" id="3_higb5"]
 [ext_resource type="Texture2D" uid="uid://cf6nyv6it5qiv" path="res://Sprites/Person/!.png" id="4_gy353"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v7s"]
+light_mode = 2
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m25up"]
 atlas = ExtResource("2_wrnb3")
 region = Rect2(0, 0, 1704, 4000)
@@ -16,12 +19,6 @@ region = Rect2(1704, 0, 1704, 4000)
 [sub_resource type="AtlasTexture" id="AtlasTexture_higb5"]
 atlas = ExtResource("2_wrnb3")
 region = Rect2(0, 4000, 1704, 4000)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v7s"]
-light_mode = 2
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3qlke"]
-load_path = "res://.godot/imported/person.png-914b8e2d2fe684f55a281c82398b78fd.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -54,7 +51,7 @@ size = Vector2(46.000004, 40)
 [node name="Person" type="CharacterBody2D" unique_id=1143240551 node_paths=PackedStringArray("sprite")]
 material = SubResource("CanvasItemMaterial_g4v7s")
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_wrnb3")
 sprite = NodePath("AnimatedSprite2D")
 

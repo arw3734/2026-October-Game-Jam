@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(direction * run_speed, acceleration * delta)
 	
 	if abs(velocity.x) > 10.0:
-		sprite.flip_h = velocity.x < 0.0
+		sprite.flip_h = velocity.x >= 0.0
 	move_and_slide()
 
 func pick_new_destination():
