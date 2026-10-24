@@ -15,6 +15,9 @@ func swap_state(state_name: String):
 	elif state_name == "aggro":
 		current_state = STATE.AGGRO
 
+func is_aggro():
+	return current_state == STATE.AGGRO
+
 func _ready() -> void:
 	current_state = STATE.PASSIVE
 

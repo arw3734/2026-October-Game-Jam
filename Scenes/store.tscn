@@ -8,6 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://5skxgpmgy8pt" path="res://Scenes/person.tscn" id="5_jdgcu"]
 [ext_resource type="PackedScene" uid="uid://lawxpndi3k58" path="res://Scenes/obstacle.tscn" id="6_m7h4d"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bhunq"]
+vertices = PackedVector2Array(753, 509, 1247.1172, 687.9219, 36.953125, 685.0703, 566, 509, 1249.8672, 35, 753, 195, 36.039063, 35, 566, 195)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(3, 2, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 715, 6, 5, 1280, 5, 1277, 718)])
+parsed_geometry_type = 1
+parsed_collision_mask = 4294901762
+agent_radius = 30.0
+
 [node name="Store" type="Node2D" unique_id=747581114]
 script = ExtResource("1_x7ts4")
 
@@ -17,14 +25,24 @@ player = NodePath("../Player")
 [node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
 position = Vector2(434, 299)
 
-[node name="State" parent="." unique_id=940971249 instance=ExtResource("3_s3f3m")]
+[node name="UI" parent="Player" unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
+offset_left = -434.0
+offset_top = -299.0
+offset_right = -434.0
+offset_bottom = -299.0
+state = NodePath("../../State")
 
-[node name="UI" parent="." unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
-state = NodePath("../State")
+[node name="State" parent="." unique_id=940971249 instance=ExtResource("3_s3f3m")]
 
 [node name="Person" parent="." unique_id=1143240551 node_paths=PackedStringArray("player") groups=["enemies"] instance=ExtResource("5_jdgcu")]
 position = Vector2(963, 279)
 player = NodePath("../Player")
 
-[node name="Obstacle" parent="." unique_id=1974016665 instance=ExtResource("6_m7h4d")]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1572798828]
+navigation_polygon = SubResource("NavigationPolygon_bhunq")
+
+[node name="Obstacle" parent="NavigationRegion2D" unique_id=1974016665 instance=ExtResource("6_m7h4d")]
 position = Vector2(658, 286)
+
+[node name="Obstacle2" parent="NavigationRegion2D" unique_id=914132982 instance=ExtResource("6_m7h4d")]
+position = Vector2(658, 414)
