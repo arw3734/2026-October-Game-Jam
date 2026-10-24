@@ -61,6 +61,11 @@ func swap_state(state_name: String):
 			sprite.play("aggro")
 			
 			repath_timer = 0.0
+			lost_sight_timer = 0.0
+			
+			if is_instance_valid(player):
+				last_known_position = player.global_position
+				nav_agent.target_position = last_known_position
 		
 		"searching":
 			if current_state == STATE.SEARCHING:
@@ -125,9 +130,11 @@ func advance_patrol():
 
 func update_aggro(delta: float):
 	if can_see_player():
-		if not is_instance_valid(player):
-			return
+		lost_sight_timer = 0.0
+		last_known_position = player.global_position
+		
 		repath_timer -= delta
+		
 		if repath_timer <= 0.0:
 			nav_agent.target_position = player.global_position
 			repath_timer = REPATH_INTERVAL
@@ -164,15 +171,3 @@ func has_active_target() -> bool:
 
 func is_aggro():
 	return current_state == STATE.AGGRO
-
-func _ready() -> void:
-	current_state = STATE.PASSIVE
-
-func _process(delta: float):
-	if current_state == STATE.PASSIVE:
-		sprite.play("idle")
-	elif current_state == STATE.AGGRO:
-		#chase code
-		sprite.play("aggro")
-	
-	
