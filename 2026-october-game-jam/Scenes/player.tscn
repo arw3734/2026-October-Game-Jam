@@ -1,31 +1,32 @@
 [gd_scene format=3 uid="uid://j48pi1tis2ds"]
 
-[ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://hvhjph41ttoa" path="res://Sprites/Cat/cat.png" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://hvhjph41ttoa" path="res://Sprites/Cat/cat.png" id="2_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
-size = Vector2(125, 126)
+size = Vector2(77, 66)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 192.02344
+radius = 121.016525
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_onrkg")
+"texture": ExtResource("2_6t5aa")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1816450137 node_paths=PackedStringArray("sprite")]
-script = ExtResource("1_onrkg")
+[node name="Player" type="CharacterBody2D" unique_id=1816450137 node_paths=PackedStringArray("sprite", "camera")]
+script = ExtResource("1_cvnsp")
 sprite = NodePath("Sprite")
+camera = NodePath("Camera")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965691915]
-position = Vector2(0.5, 1)
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=965691915]
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_57qmd")
 debug_color = Color(0.29264665, 0.62978876, 0, 0.41960785)
 
@@ -35,6 +36,8 @@ debug_color = Color(0.29264665, 0.62978876, 0, 0.41960785)
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=225016286]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
+
+[node name="Camera" type="Camera2D" parent="." unique_id=146152851]

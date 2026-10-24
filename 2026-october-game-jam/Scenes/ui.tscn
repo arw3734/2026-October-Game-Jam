@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4ei8y1swima1"]
 
-[ext_resource type="Script" uid="uid://dgposcvvwbmv1" path="res://ui.gd" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://dgposcvvwbmv1" path="res://Scripts/ui.gd" id="1_fyqef"]
 
 [node name="UI" type="Control" unique_id=2143664663 node_paths=PackedStringArray("time_label")]
 layout_mode = 3
