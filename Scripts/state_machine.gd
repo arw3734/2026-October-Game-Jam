@@ -7,6 +7,7 @@ enum STATE {
 }
 
 @export var sprite: AnimatedSprite2D
+@export var aggro: Sprite2D
 @export var lose_sight_delay: float = 1.0
 @export var search_duration: float = 3.0
 
@@ -40,7 +41,7 @@ func configure(player_ref: CharacterBody2D, patrol_route: Node2D) -> void:
 				patrol_points.append(child as Marker2D)
 	current_state = STATE.PASSIVE
 	patrol_target_set = false
-	sprite.play("idle")
+	sprite.play("walk")
 
 func swap_state(state_name: String):
 	match state_name:
@@ -49,7 +50,7 @@ func swap_state(state_name: String):
 				return
 			
 			current_state = STATE.PASSIVE
-			sprite.play("idle")
+			sprite.play("walk")
 			
 			patrol_target_set = false
 		
@@ -58,7 +59,8 @@ func swap_state(state_name: String):
 				return
 			
 			current_state = STATE.AGGRO
-			sprite.play("aggro")
+			sprite.play("walk")
+			aggro.show()
 			
 			repath_timer = 0.0
 			lost_sight_timer = 0.0
@@ -71,12 +73,18 @@ func swap_state(state_name: String):
 			if current_state == STATE.SEARCHING:
 				return
 			
+			if person.velocity == Vector2.ZERO:
+				sprite.play("idle")
+			else:
+				sprite.play("walk")
+			
 			current_state = STATE.SEARCHING
 			search_timer = 0.0
+			aggro.hide()
 			
 			nav_agent.target_position = last_known_position
 			
-			sprite.play("idle")
+			
 
 func physics_update(delta: float):
 	match current_state:
