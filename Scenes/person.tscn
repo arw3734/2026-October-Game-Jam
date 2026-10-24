@@ -1,28 +1,41 @@
 [gd_scene format=3 uid="uid://5skxgpmgy8pt"]
 
 [ext_resource type="Script" uid="uid://dh8kpl8xg4g0b" path="res://Scripts/person.gd" id="1_wrnb3"]
-[ext_resource type="Texture2D" uid="uid://dqwj4x5kw08wj" path="res://Sprites/Person/angry_person.png" id="2_gy353"]
+[ext_resource type="Texture2D" uid="uid://cd74n35rscvfc" path="res://Sprites/Person/Person_sheet.png" id="2_wrnb3"]
 [ext_resource type="Script" uid="uid://b2imloim5ojj6" path="res://Scripts/state_machine.gd" id="3_higb5"]
+[ext_resource type="Texture2D" uid="uid://cf6nyv6it5qiv" path="res://Sprites/Person/!.png" id="4_gy353"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3qlke"]
-load_path = "res://.godot/imported/person.png-914b8e2d2fe684f55a281c82398b78fd.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_m25up"]
+atlas = ExtResource("2_wrnb3")
+region = Rect2(0, 0, 1704, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy353"]
+atlas = ExtResource("2_wrnb3")
+region = Rect2(1704, 0, 1704, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_higb5"]
+atlas = ExtResource("2_wrnb3")
+region = Rect2(0, 4000, 1704, 4000)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gy353")
+"texture": SubResource("AtlasTexture_m25up")
 }],
 "loop": 1,
-"name": &"aggro",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_3qlke")
+"texture": SubResource("AtlasTexture_gy353")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_higb5")
 }],
 "loop": 1,
-"name": &"idle",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -42,7 +55,8 @@ sprite = NodePath("AnimatedSprite2D")
 position = Vector2(0, -74)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"aggro"
+animation = &"walk"
+frame_progress = 0.96205425
 
 [node name="Area" type="Area2D" parent="." unique_id=1508754564]
 
@@ -54,11 +68,18 @@ shape = SubResource("CircleShape2D_g4v7s")
 path_desired_distance = 12.0
 target_desired_distance = 20.0
 
-[node name="StateMachine" type="Node" parent="." unique_id=1866533925 node_paths=PackedStringArray("sprite")]
+[node name="StateMachine" type="Node" parent="." unique_id=1866533925 node_paths=PackedStringArray("sprite", "aggro")]
 script = ExtResource("3_higb5")
 sprite = NodePath("../AnimatedSprite2D")
+aggro = NodePath("../Aggro")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1547415745]
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.06738325, 0.6462446, 0.20327428, 0.41960785)
+
+[node name="Aggro" type="Sprite2D" parent="." unique_id=1645979229]
+visible = false
+position = Vector2(0, -209.00002)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_gy353")
