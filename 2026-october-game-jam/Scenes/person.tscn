@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://5skxgpmgy8pt"]
+
+[ext_resource type="Script" uid="uid://dh8kpl8xg4g0b" path="res://Scripts/person.gd" id="1_wrnb3"]
+[ext_resource type="Texture2D" uid="uid://dqwj4x5kw08wj" path="res://Sprites/Person/angry_person.png" id="2_gy353"]
+[ext_resource type="Script" uid="uid://b2imloim5ojj6" path="res://Scripts/state_machine.gd" id="3_higb5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3qlke"]
+load_path = "res://.godot/imported/person.png-914b8e2d2fe684f55a281c82398b78fd.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gy353")
+}],
+"loop": 1,
+"name": &"aggro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_3qlke")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(44, 197)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 241.53053
+
+[node name="Person" type="CharacterBody2D" unique_id=1143240551 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_wrnb3")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=867173411]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"aggro"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1547415745]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.06738325, 0.6462446, 0.20327428, 0.41960785)
+
+[node name="Area" type="Area2D" parent="." unique_id=1508754564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1342947548]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1866533925 node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_higb5")
+sprite = NodePath("../AnimatedSprite2D")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
