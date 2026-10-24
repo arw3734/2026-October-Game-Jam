@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dna4somx52x48"]
+
+[ext_resource type="Texture2D" uid="uid://lokqp3mi600r" path="res://Sprites/MapStuff/Wall tilemap.png" id="1_2bj67"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxhnf"]
+texture = ExtResource("1_2bj67")
+texture_region_size = Vector2i(2500, 2500)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g4v7s"]
+tile_size = Vector2i(2500, 2500)
+sources/0 = SubResource("TileSetAtlasSource_cxhnf")
+
+[node name="Walls" type="TileMapLayer" unique_id=1334353006]
+scale = Vector2(0.3, 0.3)
+tile_set = SubResource("TileSet_g4v7s")
