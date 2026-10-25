@@ -28,7 +28,11 @@ func _physics_process(delta: float) -> void:
 	SPEED = 450.0 if sprinting else 300.0
 	
 	if sprinting:
+		
 		stamina_recover.stop()
+		
+		if (sprite.animation != "run"):
+			$Sprite.play("run")
 		
 		if not ticking:
 			stamina_ticker.start()
@@ -51,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = false
 	
 	
-	if (direction.x || direction.y) and sprite.animation != "walk":
+	if (direction.x || direction.y) and sprite.animation != "walk" and !sprinting:
 		$Sprite.play("walk")
 	elif (!direction):
 		$Sprite.play("idle")

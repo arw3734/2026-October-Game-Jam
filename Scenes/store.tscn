@@ -1,12 +1,15 @@
-[gd_scene format=3 uid="uid://cddvi1l3espv"]
+[gd_scene format=4 uid="uid://cddvi1l3espv"]
 
 [ext_resource type="PackedScene" uid="uid://j48pi1tis2ds" path="res://Scenes/player.tscn" id="1_c176v"]
 [ext_resource type="Script" uid="uid://bsnkfxu673wiy" path="res://Scripts/store.gd" id="1_x7ts4"]
 [ext_resource type="Texture2D" uid="uid://2nt22cmrp3n4" path="res://artwork_1.jpg" id="2_a54sg"]
+[ext_resource type="PackedScene" uid="uid://dna4somx52x48" path="res://Scenes/walls.tscn" id="2_f3gkj"]
 [ext_resource type="PackedScene" uid="uid://davspuhu65btt" path="res://Scenes/state.tscn" id="3_s3f3m"]
+[ext_resource type="PackedScene" uid="uid://cnp7b8rf6fcwc" path="res://Scenes/Rack.tscn" id="4_cwvkk"]
 [ext_resource type="PackedScene" uid="uid://b4ei8y1swima1" path="res://Scenes/ui.tscn" id="4_s3f3m"]
 [ext_resource type="PackedScene" uid="uid://5skxgpmgy8pt" path="res://Scenes/person.tscn" id="5_jdgcu"]
-[ext_resource type="PackedScene" uid="uid://lawxpndi3k58" path="res://Scenes/obstacle.tscn" id="6_m7h4d"]
+[ext_resource type="PackedScene" uid="uid://qhoy3egram1k" path="res://Scenes/Wall.tscn" id="5_w72gx"]
+[ext_resource type="PackedScene" uid="uid://cu7dlb4j04dx2" path="res://Scenes/House thingy.tscn" id="10_w72gx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bhunq"]
 vertices = PackedVector2Array(768, 524, 1232.1797, 672.8906, 51.929688, 670.10156, 551, 524, 1234.8125, 50, 768, 180, 51.0625, 50, 551, 180)
@@ -34,17 +37,115 @@ polygon = PackedVector2Array(593, 220, 591, 480, 725, 480, 727, 220)
 [node name="Store" type="Node2D" unique_id=747581114]
 script = ExtResource("1_x7ts4")
 
+[node name="Walls" parent="." unique_id=1334353006 instance=ExtResource("2_f3gkj")]
+scale = Vector2(0.1, 0.1)
+tile_map_data = PackedByteArray("AAD///b/AAAAAAAAAAAAAPb/AAABAAAAAAABAPb/AAABAAAAAAACAPb/AAABAAAAAAADAPb/AAABAAAAAAAEAPb/AAABAAAAAAAFAPb/AAABAAAAAAAGAPb/AAABAAAAAAAHAPb/AAABAAAAAAAIAPb/AAABAAAAAAAJAPb/AAABAAAAAAAKAPb/AAABAAAAAAALAPb/AAACAAAAAAALAPf/AAACAAEAAAALAPj/AAACAAEAAAALAPn/AAACAAEAAAALAPr/AAACAAEAAAALAPv/AAACAAEAAAALAPz/AAACAAIAAAAKAPz/AAABAAIAAAAJAPz/AAABAAIAAAAIAP3/AAACAAEAAAAIAP7/AAACAAEAAAAIAP//AAACAAEAAAAIAAAAAAACAAEAAAAIAAEAAAACAAEAAAAIAAIAAAACAAEAAAAIAAMAAAACAAEAAAD///f/AAAAAAEAAAD+//j/AAABAAAAAAD9//j/AAABAAAAAAD8//j/AAABAAAAAAD7//j/AAABAAAAAAD6//j/AAABAAAAAAD5//j/AAABAAAAAAD4//j/AAAAAAAAAAD4//n/AAAAAAEAAAD4//r/AAAAAAEAAAD4//v/AAAAAAEAAAD4//z/AAAAAAEAAAD4//3/AAAAAAEAAAD4//7/AAAAAAEAAAD4////AAAAAAEAAAD4/wAAAAAAAAEAAAD4/wEAAAAAAAEAAAD4/wIAAAAAAAEAAAD4/wMAAAAAAAEAAAD4/wQAAAAAAAEAAAD4/wUAAAAAAAEAAAD4/wYAAAAAAAIAAAD5/wYAAAABAAIAAAD6/wYAAAABAAIAAAD7/wYAAAABAAIAAAD8/wYAAAABAAIAAAD9/wYAAAABAAIAAAD+/wYAAAABAAIAAAD//wYAAAABAAIAAAAAAAYAAAABAAIAAAABAAYAAAABAAIAAAACAAYAAAABAAIAAAADAAYAAAACAAIAAAAEAAUAAAABAAIAAAAFAAUAAAABAAIAAAAGAAUAAAABAAIAAAAHAAUAAAABAAIAAAAIAAUAAAACAAIAAAAIAAQAAAACAAEAAAA=")
+
 [node name="Artwork1" type="Sprite2D" parent="." unique_id=508578759]
+visible = false
 position = Vector2(649, 417)
 texture = ExtResource("2_a54sg")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=986812265 groups=["nav_obstacles"]]
 
-[node name="Obstacle" parent="Obstacles" unique_id=1974016665 instance=ExtResource("6_m7h4d")]
-position = Vector2(658, 286)
+[node name="Obstacle2" parent="Obstacles" unique_id=1974016665 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1468, 1528)
 
-[node name="Obstacle2" parent="Obstacles" unique_id=914132982 instance=ExtResource("6_m7h4d")]
-position = Vector2(658, 414)
+[node name="Obstacle" parent="Obstacles" unique_id=2058198111 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1809, 1528)
+
+[node name="Obstacle3" parent="Obstacles" unique_id=2035489313 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1468, 1192)
+
+[node name="Obstacle4" parent="Obstacles" unique_id=2023287219 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1809, 1192)
+
+[node name="Obstacle5" parent="Obstacles" unique_id=967998921 instance=ExtResource("4_cwvkk")]
+position = Vector2(2001, 1244)
+
+[node name="Obstacle6" parent="Obstacles" unique_id=822010121 instance=ExtResource("4_cwvkk")]
+position = Vector2(1660, 1244)
+
+[node name="Obstacle7" parent="Obstacles" unique_id=914869241 instance=ExtResource("4_cwvkk")]
+position = Vector2(2001, 908)
+
+[node name="Obstacle8" parent="Obstacles" unique_id=1390248501 instance=ExtResource("4_cwvkk")]
+position = Vector2(1660, 908)
+
+[node name="Obstacle9" parent="Obstacles" unique_id=1834855291 instance=ExtResource("4_cwvkk")]
+position = Vector2(2824, -1023)
+
+[node name="Obstacle10" parent="Obstacles" unique_id=79628097 instance=ExtResource("4_cwvkk")]
+position = Vector2(2483, -1023)
+
+[node name="Obstacle11" parent="Obstacles" unique_id=923297495 instance=ExtResource("4_cwvkk")]
+position = Vector2(2824, -1359)
+
+[node name="Obstacle12" parent="Obstacles" unique_id=1843016663 instance=ExtResource("4_cwvkk")]
+position = Vector2(2483, -1359)
+
+[node name="Obstacle13" parent="Obstacles" unique_id=1767879666 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1389, -1257)
+
+[node name="Obstacle14" parent="Obstacles" unique_id=1145142845 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1730, -1257)
+
+[node name="Obstacle15" parent="Obstacles" unique_id=834153200 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1389, -1593)
+
+[node name="Obstacle16" parent="Obstacles" unique_id=924316168 instance=ExtResource("4_cwvkk")]
+position = Vector2(-1730, -1593)
+
+[node name="Obstacle17" parent="Obstacles" unique_id=1999881617 instance=ExtResource("5_w72gx")]
+position = Vector2(-1629, 884)
+
+[node name="Obstacle18" parent="Obstacles" unique_id=1998449913 instance=ExtResource("5_w72gx")]
+position = Vector2(-1629, 459)
+
+[node name="Obstacle21" parent="Obstacles" unique_id=645799863 instance=ExtResource("5_w72gx")]
+position = Vector2(-1629, 8)
+
+[node name="Obstacle22" parent="Obstacles" unique_id=603675935 instance=ExtResource("5_w72gx")]
+position = Vector2(-1629, -417)
+
+[node name="Obstacle23" parent="Obstacles" unique_id=1020476226 instance=ExtResource("5_w72gx")]
+position = Vector2(1817, 459)
+
+[node name="Obstacle24" parent="Obstacles" unique_id=952958061 instance=ExtResource("5_w72gx")]
+position = Vector2(1817, 34)
+
+[node name="Obstacle25" parent="Obstacles" unique_id=967369655 instance=ExtResource("5_w72gx")]
+position = Vector2(-712, -1210)
+
+[node name="Obstacle26" parent="Obstacles" unique_id=1004499943 instance=ExtResource("5_w72gx")]
+position = Vector2(-712, -1635)
+
+[node name="Obstacle27" parent="Obstacles" unique_id=1162985569 instance=ExtResource("5_w72gx")]
+position = Vector2(241, -1673)
+
+[node name="Obstacle28" parent="Obstacles" unique_id=462988491 instance=ExtResource("5_w72gx")]
+position = Vector2(241, -2098)
+
+[node name="Obstacle29" parent="Obstacles" unique_id=18931101 instance=ExtResource("5_w72gx")]
+position = Vector2(1108, -1673)
+
+[node name="Obstacle30" parent="Obstacles" unique_id=1408833891 instance=ExtResource("5_w72gx")]
+position = Vector2(1108, -2098)
+
+[node name="Obstacle31" parent="Obstacles" unique_id=205306216 instance=ExtResource("5_w72gx")]
+position = Vector2(2541, -1673)
+
+[node name="Obstacle32" parent="Obstacles" unique_id=831221619 instance=ExtResource("5_w72gx")]
+position = Vector2(2541, -2098)
+
+[node name="Obstacle19" parent="Obstacles" unique_id=650177037 instance=ExtResource("5_w72gx")]
+position = Vector2(-913, 884)
+
+[node name="Obstacle20" parent="Obstacles" unique_id=2097392199 instance=ExtResource("5_w72gx")]
+position = Vector2(-913, 459)
+
+[node name="Obstacle33" parent="Obstacles" unique_id=1996506375 instance=ExtResource("10_w72gx")]
+position = Vector2(13, 19)
 
 [node name="State" parent="." unique_id=940971249 node_paths=PackedStringArray("rat_nav_region") instance=ExtResource("3_s3f3m")]
 rat_nav_region = NodePath("../RatNavigationRegion")
@@ -57,7 +158,7 @@ position = Vector2(325, 553)
 navigation_polygon = SubResource("NavigationPolygon_riqys")
 
 [node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
-position = Vector2(462, 535)
+position = Vector2(417, 488)
 
 [node name="UI" parent="Player" unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
 anchors_preset = 0
