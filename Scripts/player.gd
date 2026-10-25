@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		and can_run
 	)
 	
-	if Input.is_action_pressed("meow"):
+	if Input.is_action_just_pressed("meow"):
 		noise_area.scale = Vector2(5,5)
 		# MEOW SFX
 		is_meowing = true
@@ -117,7 +117,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		pass
 	
 	if body.is_in_group("rats"):
-		state.state.increase_score(5, "Caught a rat!")
+		state.increase_score(5, "Caught a rat!")
 		body.queue_free()
 
 

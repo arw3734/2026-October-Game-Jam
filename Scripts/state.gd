@@ -15,8 +15,11 @@ func _ready() -> void:
 	current_time = "12:00"
 	score = 0
 
-func increase_score(value: int):
+signal score_added(points: int, reason: String)
+
+func increase_score(value: int, text: String):
 	score += value
+	score_added.emit(value, text)
 
 func _on_time_timeout() -> void:
 	time_ms+=1

@@ -7,7 +7,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nf4gj"]
 light_mode = 1
 
-[node name="UI" type="Control" unique_id=2143664663 node_paths=PackedStringArray("time_label", "stamina_bar")]
+[node name="UI" type="Control" unique_id=2143664663 node_paths=PackedStringArray("time_label", "stamina_bar", "log_entries")]
 z_index = 200
 material = SubResource("CanvasItemMaterial_nf4gj")
 layout_mode = 3
@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_fyqef")
 time_label = NodePath("MarginContainer/Time")
 stamina_bar = NodePath("StaminaBar")
+log_entries = NodePath("StoreCanvas/ScoreLog/Entries")
 
 [node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=2118344477]
 use_parent_material = true
@@ -58,17 +59,26 @@ horizontal_alignment = 1
 
 [node name="ScoreLog" type="Control" parent="StoreCanvas" unique_id=1202976100]
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+anchor_left = 0.84900004
+anchor_top = 0.739
+anchor_right = 0.96700007
+anchor_bottom = 0.93200004
+offset_left = 0.27990723
+offset_top = -0.08001709
+offset_right = 0.23986816
+offset_bottom = -0.040039063
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Entries" type="VBoxContainer" parent="StoreCanvas/ScoreLog" unique_id=727634055]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -150.0
+offset_right = -240.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2

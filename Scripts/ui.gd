@@ -5,8 +5,7 @@ extends Control
 
 @onready var player = get_parent()
 
-
-@onready var log_entries: VBoxContainer = $ScoreCanvas/ScoreLog/Entries
+@export var log_entries: VBoxContainer
 
 @export var log_duration: float = 2.5
 @export var fade_duration: float = 0.5
