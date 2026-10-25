@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cu7dlb4j04dx2"]
+
+[ext_resource type="Texture2D" uid="uid://df6yi6tym77co" path="res://Sprites/MapStuff/housethingy.png" id="1_1daft"]
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
+light_mask = 0
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
+position = Vector2(0, 361)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_1daft")
+offset = Vector2(0, -2406.667)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1017149706]
+polygon = PackedVector2Array(-357, 458, -163, 459, -137, 300, -142, 224, -229, 234, -361, 349)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=1088543045]
+polygon = PackedVector2Array(140, 299, 169, 459, 361, 461, 364, 350, 240, 227, 144, 222)

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://1kr82bcs4sdi"]
+
+[ext_resource type="Script" uid="uid://qxe22vagfx05" path="res://Scripts/end_screen.gd" id="1_1gwaw"]
+[ext_resource type="Texture2D" uid="uid://cpff7xibt7bwd" path="res://Sprites/UI/End Screen.png" id="2_bhpww"]
+
+[node name="end_screen" type="Control" unique_id=1410239702]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1gwaw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1868048302]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bhpww")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1231492949]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 700
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=82149830]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CenterContainer" unique_id=591050595]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/PanelContainer" unique_id=1804168763]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=1604674043]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1024748666]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1] Game Over [/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Empty2" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1976162111]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="timeInStore" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=106357448]
+layout_mode = 2
+text = "Time spent in Store: XX:XX"
+horizontal_alignment = 1
+
+[node name="timeNotHiding" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2055511428]
+layout_mode = 2
+text = "Time spent not hiding: XX:XX"
+horizontal_alignment = 1
+
+[node name="Mice" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=356688137]
+layout_mode = 2
+text = "Mice caught: X"
+horizontal_alignment = 1
+
+[node name="Meows" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=471177567]
+layout_mode = 2
+text = "Number of Meows: XX"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=54500694]
+layout_mode = 2
+text = "Total Score: XXXXXXX"
+horizontal_alignment = 1
+
+[node name="Empty" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=695389947]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1766888808]
+layout_mode = 2
+text = "Back to main menu"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

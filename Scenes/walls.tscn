@@ -6,19 +6,30 @@
 texture = ExtResource("1_2bj67")
 texture_region_size = Vector2i(2500, 2500)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1264.7705, 1256.6976, -1103.3105, 1250, -1101.0034, 829.852, 1250, 836.90137, 1250, -1250, -1250, -1250)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1250, 834.5371, 1250, 833.3657, 1250, -1250, -1250, -1250)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1250, 832.1946, 1099.832, 833.3658, 1099.832, 1250, 1250, 1250, 1250, -1250, -1250, -1250)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1100.4712, -1250, -1099.832, 1250, -1250, 1250, -1250, -1250)
 1:1/0 = 0
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1101.822, -1250, 1250, -1250, 1250, 1250, 1103.897, 1250)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1250, 1108.6643, 1099.2324, 1108.6643, 1100.9473, -1250, 1250, -1250, 1250, 1250, -1250, 1250)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1250, 1108.6643, 1250, 1106.9495, 1250, 1250, -1250, 1250)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1101.0033, -1250, -1101.0034, 1108.6167, 1250, 1108.6167, 1250, 1250, -1250, 1250, -1250, -1250)
 
 [sub_resource type="TileSet" id="TileSet_g4v7s"]
 tile_size = Vector2i(2500, 2500)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_cxhnf")
 
 [node name="Walls" type="TileMapLayer" unique_id=1334353006]
 scale = Vector2(0.3, 0.3)
 tile_set = SubResource("TileSet_g4v7s")
+collision_visibility_mode = 1

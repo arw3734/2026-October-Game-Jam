@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cnp7b8rf6fcwc"]
+
+[ext_resource type="Texture2D" uid="uid://c2h6h5qt2v211" path="res://Sprites/MapStuff/Rack.png" id="1_6wum4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(117.5, 36.5)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
+light_mask = 0
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
+position = Vector2(0, 73.99999)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_6wum4")
+offset = Vector2(0, -739.99994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105813043]
+visibility_layer = 2
+position = Vector2(-5.75, 92.25)
+shape = SubResource("RectangleShape2D_bhunq")

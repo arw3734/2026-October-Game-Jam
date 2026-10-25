@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsl386s2s8ynn" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://bsr2uwtjmxrbv" path="res://Sprites/UI/Title Screen.png" id="2_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://bg4xaiduh1ixk" path="res://Sprites/UI/Title Screen Cat Alt.png" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://dl5442g2o75pn" path="res://Sprites/UI/logo.png" id="4_ce3w2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
 
@@ -43,8 +44,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 300
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 700
 theme_override_constants/margin_bottom = 0
 
@@ -57,29 +58,37 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/PanelContainer" unique_id=1481492193]
 layout_mode = 2
 theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=1830493356]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1292144775]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=636124861]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Game yeah"
+texture = ExtResource("4_ce3w2")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="Play" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1762077340]
+custom_maximum_size = Vector2(100, -1)
 layout_mode = 2
 text = "Play"
+alignment = 0
 
 [node name="Controls" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=900333878]
+custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
 text = "Controls"
+alignment = 0
 
 [node name="Exit" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=812350281]
+custom_maximum_size = Vector2(300, -1)
 layout_mode = 2
 text = "Exit"
+alignment = 0
 
 [node name="PetButton" type="Button" parent="." unique_id=1848993871]
 layout_mode = 1

@@ -94,8 +94,7 @@ use_parent_material = true
 position = Vector2(0, -23)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"run"
-frame_progress = 0.98190665
+animation = &"idle"
 
 [node name="Camera" type="Camera2D" parent="." unique_id=146152851]
 position = Vector2(0, -33)
