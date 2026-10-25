@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://df6yi6tym77co" path="res://Sprites/MapStuff/housethingy.png" id="1_1daft"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fkybt"]
+light_mode = 1
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1daft"]
 polygon = PackedVector2Array(-1113.3333, 653.3335, -1160, -180, -2400, -113.33325, -2380, 646.66675)
 
@@ -17,10 +20,12 @@ polygon = PackedVector2Array(141, 297, 251, 301, 252, 228, 147, 224)
 [node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
 light_mask = 0
 y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_fkybt")
 collision_layer = 2
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
+use_parent_material = true
 position = Vector2(0, 361)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_1daft")

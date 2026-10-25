@@ -10,7 +10,7 @@
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
-size = Vector2(48, 19)
+size = Vector2(49, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 44.407207
@@ -84,7 +84,7 @@ shape = SubResource("RectangleShape2D_57qmd")
 debug_color = Color(0.29264665, 0.62978876, 0, 0.41960785)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1088050337]
-position = Vector2(0, -33)
+position = Vector2(0, -17)
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=92701900]
@@ -93,7 +93,7 @@ shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=225016286]
 use_parent_material = true
-position = Vector2(0, -23)
+position = Vector2(0, -16)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
@@ -127,7 +127,6 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoiseArea" unique_id=450175552]
-position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.84796405, 0.0009481758, 0.9061362, 0.41960785)
 

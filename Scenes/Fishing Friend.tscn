@@ -2,11 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bwi84cdkb1xwb" path="res://Sprites/MapStuff/Fishing Friend.png" id="1_5pgqf"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6wum4"]
+light_mode = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(46, 29.5)
+size = Vector2(50, 30.75)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
-polygon = PackedVector2Array(-18, 298, -67, 298, -69, 279, -36, 267, -22, 277)
+polygon = PackedVector2Array(-18, 298, -67, 298, -69, 279, -46, 270, -23, 269, -22, 277)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf5fn"]
 polygon = PackedVector2Array(16, 298, 64, 297, 67, 277, 41, 268, 25, 270, 18, 280)
@@ -14,10 +17,12 @@ polygon = PackedVector2Array(16, 298, 64, 297, 67, 277, 41, 268, 25, 270, 18, 28
 [node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
 light_mask = 0
 y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_6wum4")
 collision_layer = 2
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
+use_parent_material = true
 position = Vector2(-0.99999994, 273.99997)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("1_5pgqf")
@@ -25,7 +30,7 @@ offset = Vector2(9.999999, -2739.9998)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=808420248]
 visibility_layer = 2
-position = Vector2(-44, 283)
+position = Vector2(-44, 283.625)
 shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105813043]

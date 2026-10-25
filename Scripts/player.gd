@@ -91,7 +91,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
-	
 	move_and_slide()
 
 func _on_stamina_tick_timeout() -> void:
@@ -103,10 +102,8 @@ func _on_stamina_tick_timeout() -> void:
 	
 	ticking = false
 
-
 func _on_stamina_cooldown_timeout() -> void:
 	can_run = true
-
 
 func _on_stamina_recover_timeout() -> void:
 	if stamina < 100:

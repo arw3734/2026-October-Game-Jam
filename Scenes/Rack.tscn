@@ -2,19 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://c2h6h5qt2v211" path="res://Sprites/MapStuff/Rack.png" id="1_6wum4"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2p0br"]
+light_mode = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(117.5, 36.5)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6wum4"]
-polygon = PackedVector2Array(-649.99994, 6.1035156e-05, 539.99994, 6.1035156e-05, 539.99994, 290, -649.99994, 300)
+polygon = PackedVector2Array(-659.99994, 140.00006, -559.99994, 6.1035156e-05, 469.99997, 10.000061, 529.99994, 130.00006, 529.99994, 360, -649.99994, 360)
 
 [node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
 light_mask = 0
 y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_2p0br")
 collision_layer = 2
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
+use_parent_material = true
 position = Vector2(0, 73.99999)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_6wum4")
