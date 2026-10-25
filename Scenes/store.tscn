@@ -22,6 +22,9 @@ source_geometry_mode = 1
 source_geometry_group_name = &"nav_obstacles"
 agent_radius = 25.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
+polygon = PackedVector2Array(-1989, -1800, -254, -1803, -252, -1997, -238, -2006, -240, -2304, 2988, -2299, 2992, -757, 2252, -757, 2242, -741, 2241, 1491, 1004, 1492, 993, 1510, 993, 1740, -1991, 1741, -1993, -1786, -2085, -1837, -2116, -2636, 42, -2864, 3353, -2918, 3691, 500, 1758, 2719, -2906, 2303, -2524, -731, -2385, -1962)
+
 [node name="Store" type="Node2D" unique_id=747581114]
 y_sort_enabled = true
 script = ExtResource("1_x7ts4")
@@ -176,22 +179,157 @@ position = Vector2(963, 279)
 player = NodePath("../Player")
 patrol_route = NodePath("../PatrolPoints")
 
+[node name="Person2" parent="." unique_id=437304467 node_paths=PackedStringArray("player", "patrol_route") groups=["enemies"] instance=ExtResource("5_jdgcu")]
+position = Vector2(-517, 1356)
+player = NodePath("../Player")
+patrol_route = NodePath("../PatrolPoints")
+
+[node name="Person3" parent="." unique_id=1973381361 node_paths=PackedStringArray("player", "patrol_route") groups=["enemies"] instance=ExtResource("5_jdgcu")]
+position = Vector2(880, -958)
+player = NodePath("../Player")
+patrol_route = NodePath("../PatrolPoints")
+
+[node name="Person4" parent="." unique_id=259562399 node_paths=PackedStringArray("player", "patrol_route") groups=["enemies"] instance=ExtResource("5_jdgcu")]
+position = Vector2(-908, -722)
+player = NodePath("../Player")
+patrol_route = NodePath("../PatrolPoints")
+
 [node name="PatrolPoints" type="Node2D" parent="." unique_id=1979410356]
 
 [node name="Point1" type="Marker2D" parent="PatrolPoints" unique_id=1438589184]
-position = Vector2(217, 603)
+position = Vector2(2014, -237)
 
-[node name="Point2" type="Marker2D" parent="PatrolPoints" unique_id=2075005731]
-position = Vector2(228, 113)
+[node name="Point2" type="Marker2D" parent="PatrolPoints" unique_id=425016944]
+position = Vector2(1382, -230)
 
-[node name="Point3" type="Marker2D" parent="PatrolPoints" unique_id=2093285207]
-position = Vector2(1061, 125)
+[node name="Point3" type="Marker2D" parent="PatrolPoints" unique_id=712756609]
+position = Vector2(1375, 285)
 
-[node name="Point4" type="Marker2D" parent="PatrolPoints" unique_id=1650292804]
-position = Vector2(1038, 604)
+[node name="Point4" type="Marker2D" parent="PatrolPoints" unique_id=1827280119]
+position = Vector2(1368, 730)
+
+[node name="Point5" type="Marker2D" parent="PatrolPoints" unique_id=645002430]
+position = Vector2(1813, 719)
+
+[node name="Point6" type="Marker2D" parent="PatrolPoints" unique_id=481446381]
+position = Vector2(1824, 1112)
+
+[node name="Point7" type="Marker2D" parent="PatrolPoints" unique_id=2080596200]
+position = Vector2(1317, 1138)
+
+[node name="Point8" type="Marker2D" parent="PatrolPoints" unique_id=637540673]
+position = Vector2(688, 1131)
+
+[node name="Point9" type="Marker2D" parent="PatrolPoints" unique_id=151496958]
+position = Vector2(692, 690)
+
+[node name="Point10" type="Marker2D" parent="PatrolPoints" unique_id=1173611332]
+position = Vector2(670, 212)
+
+[node name="Point11" type="Marker2D" parent="PatrolPoints" unique_id=870720514]
+position = Vector2(59, 204)
+
+[node name="Point12" type="Marker2D" parent="PatrolPoints" unique_id=812079562]
+position = Vector2(51, 701)
+
+[node name="Point13" type="Marker2D" parent="PatrolPoints" unique_id=527065820]
+position = Vector2(19, 1198)
+
+[node name="Point14" type="Marker2D" parent="PatrolPoints" unique_id=507356634]
+position = Vector2(-406, 1513)
+
+[node name="Point15" type="Marker2D" parent="PatrolPoints" unique_id=460944172]
+position = Vector2(-1029, 1501)
+
+[node name="Point16" type="Marker2D" parent="PatrolPoints" unique_id=14263662]
+position = Vector2(-1017, 1129)
+
+[node name="Point17" type="Marker2D" parent="PatrolPoints" unique_id=801439238]
+position = Vector2(-410, 1117)
+
+[node name="Point18" type="Marker2D" parent="PatrolPoints" unique_id=143200965]
+position = Vector2(-1659, 1372)
+
+[node name="Point19" type="Marker2D" parent="PatrolPoints" unique_id=1132909367]
+position = Vector2(-426, 725)
+
+[node name="Point20" type="Marker2D" parent="PatrolPoints" unique_id=748666091]
+position = Vector2(-1214, 717)
+
+[node name="Point21" type="Marker2D" parent="PatrolPoints" unique_id=853678777]
+position = Vector2(-1202, 232)
+
+[node name="Point22" type="Marker2D" parent="PatrolPoints" unique_id=618148653]
+position = Vector2(-1184, -231)
+
+[node name="Point23" type="Marker2D" parent="PatrolPoints" unique_id=455276747]
+position = Vector2(-563, -205)
+
+[node name="Point24" type="Marker2D" parent="PatrolPoints" unique_id=1809724309]
+position = Vector2(-1, -205)
+
+[node name="Point25" type="Marker2D" parent="PatrolPoints" unique_id=1701363071]
+position = Vector2(-1192, -808)
+
+[node name="Point26" type="Marker2D" parent="PatrolPoints" unique_id=653869831]
+position = Vector2(-530, -815)
+
+[node name="Point27" type="Marker2D" parent="PatrolPoints" unique_id=590403762]
+position = Vector2(-1570, -1411)
+
+[node name="Point28" type="Marker2D" parent="PatrolPoints" unique_id=783332698]
+position = Vector2(-1169, -1426)
+
+[node name="Point29" type="Marker2D" parent="PatrolPoints" unique_id=491695246]
+position = Vector2(-228, -1415)
+
+[node name="Point30" type="Marker2D" parent="PatrolPoints" unique_id=1137507389]
+position = Vector2(595, -1430)
+
+[node name="Point31" type="Marker2D" parent="PatrolPoints" unique_id=863201987]
+position = Vector2(569, -904)
+
+[node name="Point32" type="Marker2D" parent="PatrolPoints" unique_id=1076385822]
+position = Vector2(1315, -900)
+
+[node name="Point33" type="Marker2D" parent="PatrolPoints" unique_id=1266538601]
+position = Vector2(1286, -1437)
+
+[node name="Point34" type="Marker2D" parent="PatrolPoints" unique_id=2080234688]
+position = Vector2(1984, -1441)
+
+[node name="Point35" type="Marker2D" parent="PatrolPoints" unique_id=248421876]
+position = Vector2(1940, -860)
+
+[node name="Point36" type="Marker2D" parent="PatrolPoints" unique_id=489433425]
+position = Vector2(775, -397)
+
+[node name="Point37" type="Marker2D" parent="PatrolPoints" unique_id=1529424999]
+position = Vector2(2584, -1180)
+
+[node name="Point38" type="Marker2D" parent="PatrolPoints" unique_id=216272930]
+position = Vector2(1996, -1904)
+
+[node name="Point39" type="Marker2D" parent="PatrolPoints" unique_id=1228499619]
+position = Vector2(2577, -1908)
+
+[node name="Point40" type="Marker2D" parent="PatrolPoints" unique_id=987494933]
+position = Vector2(1092, -1901)
+
+[node name="Point41" type="Marker2D" parent="PatrolPoints" unique_id=1563233413]
+position = Vector2(239, -1912)
+
+[node name="Point42" type="Marker2D" parent="PatrolPoints" unique_id=1407986570]
+position = Vector2(420, 1476)
+
+[node name="Point43" type="Marker2D" parent="PatrolPoints" unique_id=876157596]
+position = Vector2(-1771, -833)
 
 [node name="Rats" type="Node2D" parent="." unique_id=1229121753]
 y_sort_enabled = true
 
 [node name="Obstacle" parent="." unique_id=28175313 instance=ExtResource("11_cd1ed")]
 position = Vector2(6, -1218)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=778648734]
+occluder = SubResource("OccluderPolygon2D_g4v7s")
