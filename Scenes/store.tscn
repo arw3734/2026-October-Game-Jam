@@ -22,9 +22,6 @@ source_geometry_group_name = &"nav_obstacles"
 agent_radius = 45.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_riqys"]
-vertices = PackedVector2Array(414, -58, 892.9219, 94.89844, -261.10156, 88.09375, 255, -58, 890.0703, -494.89063, 414, -344, -264.89063, -487.10156, 255, -344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(906, -511, 909, 111, -277, 104, -281, -503)])
 parsed_geometry_type = 1
 parsed_collision_mask = 4294901762
 source_geometry_mode = 1
@@ -35,6 +32,7 @@ agent_radius = 25.0
 polygon = PackedVector2Array(593, 220, 591, 480, 725, 480, 727, 220)
 
 [node name="Store" type="Node2D" unique_id=747581114]
+y_sort_enabled = true
 script = ExtResource("1_x7ts4")
 
 [node name="Walls" parent="." unique_id=1334353006 instance=ExtResource("2_f3gkj")]
@@ -47,6 +45,7 @@ position = Vector2(649, 417)
 texture = ExtResource("2_a54sg")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=986812265 groups=["nav_obstacles"]]
+y_sort_enabled = true
 
 [node name="Obstacle2" parent="Obstacles" unique_id=1974016665 instance=ExtResource("4_cwvkk")]
 position = Vector2(-1468, 1528)
@@ -145,7 +144,7 @@ position = Vector2(-913, 884)
 position = Vector2(-913, 459)
 
 [node name="Obstacle33" parent="Obstacles" unique_id=1996506375 instance=ExtResource("10_w72gx")]
-position = Vector2(13, 19)
+position = Vector2(-3, -410)
 
 [node name="State" parent="." unique_id=940971249 node_paths=PackedStringArray("rat_nav_region") instance=ExtResource("3_s3f3m")]
 rat_nav_region = NodePath("../RatNavigationRegion")
@@ -158,6 +157,7 @@ position = Vector2(325, 553)
 navigation_polygon = SubResource("NavigationPolygon_riqys")
 
 [node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
+y_sort_enabled = true
 position = Vector2(417, 488)
 
 [node name="UI" parent="Player" unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
