@@ -74,15 +74,9 @@ expand_mode = 5
 stretch_mode = 4
 
 [node name="Play" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1762077340]
-custom_maximum_size = Vector2(100, -1)
-layout_mode = 2
-text = "Play"
-alignment = 0
-
-[node name="Controls" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=900333878]
 custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
-text = "Controls"
+text = "Play"
 alignment = 0
 
 [node name="Exit" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=812350281]
