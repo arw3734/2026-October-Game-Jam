@@ -170,6 +170,9 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 state = NodePath("../../State")
+log_duration = 2.5
+fade_duration = 0.5
+max_log_entries = 6
 
 [node name="Person" parent="." unique_id=1143240551 node_paths=PackedStringArray("player", "patrol_route") groups=["enemies"] instance=ExtResource("5_jdgcu")]
 position = Vector2(963, 279)
