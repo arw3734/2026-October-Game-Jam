@@ -13,6 +13,8 @@ var stamina = 100
 var can_run: bool = true
 var ticking: bool = false
 var is_meowing: bool = false
+var meows: int = 0
+var mice_ate: int = 0
 
 @onready var stamina_ticker = $StaminaTick
 @onready var stamina_cooldown = $StaminaCooldown
@@ -32,6 +34,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("meow"):
 		noise_area.scale = Vector2(5,5)
 		$Meow.play()
+		meows+=1
 		is_meowing = true
 		state.increase_score(1, "Meowed!")
 		quiet.start()
@@ -113,11 +116,22 @@ func _on_stamina_recover_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		# Lose code goes here
-		pass
+		print("LOSE")
+		var next_scene_packed = load("res://Scenes/end_screen.tscn")
+		
+		var next_scene = next_scene_packed.instantiate()
+		
+		next_scene.time_spent_store = state.time_ms
+		next_scene.score = state.score
+		next_scene.meows = meows
+		next_scene.mice_ate = mice_ate
+		get_tree().root.add_child(next_scene)
+		get_tree().current_scene = next_scene
+		queue_free()
 	
 	if body.is_in_group("rats"):
 		state.increase_score(5, "Caught a rat!")
+		mice_ate+=1
 		body.queue_free()
 		$Crunch.play()
 

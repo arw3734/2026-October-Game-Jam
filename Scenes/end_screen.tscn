@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qxe22vagfx05" path="res://Scripts/end_screen.gd" id="1_1gwaw"]
 [ext_resource type="Texture2D" uid="uid://cpff7xibt7bwd" path="res://Sprites/UI/End Screen.png" id="2_bhpww"]
 
-[node name="end_screen" type="Control" unique_id=1410239702]
+[node name="end_screen" type="Control" unique_id=1410239702 node_paths=PackedStringArray("score_label", "time_spent_store_label", "time_spent_hide_label", "meows_label", "mice_ate_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1gwaw")
+score_label = NodePath("MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Score")
+time_spent_store_label = NodePath("MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/timeInStore")
+time_spent_hide_label = NodePath("MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/timeNotHiding")
+meows_label = NodePath("MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Meows")
+mice_ate_label = NodePath("MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Mice")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1868048302]
 layout_mode = 0
@@ -62,12 +67,12 @@ horizontal_alignment = 1
 
 [node name="timeInStore" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=106357448]
 layout_mode = 2
-text = "Time spent in Store: XX:XX"
+text = "Lasted: XX:XX"
 horizontal_alignment = 1
 
 [node name="timeNotHiding" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2055511428]
 layout_mode = 2
-text = "Time spent not hiding: XX:XX"
+text = "Out of Hiding For: XX:XX"
 horizontal_alignment = 1
 
 [node name="Mice" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=356688137]

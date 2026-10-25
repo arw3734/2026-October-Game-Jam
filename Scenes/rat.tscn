@@ -7,7 +7,7 @@
 light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(27, 7)
+size = Vector2(19.25, 7)
 
 [node name="Rat" type="CharacterBody2D" unique_id=713458100]
 y_sort_enabled = true
@@ -18,7 +18,7 @@ script = ExtResource("1_xl1m0")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=959956489]
 use_parent_material = true
-position = Vector2(11.5, -4.5)
+position = Vector2(9.536743e-07, -4)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_p0vde")
 

@@ -55,7 +55,7 @@ light_mode = 1
 [node name="Person" type="CharacterBody2D" unique_id=1143240551 node_paths=PackedStringArray("sprite")]
 material = SubResource("CanvasItemMaterial_g4v7s")
 collision_layer = 4
-collision_mask = 7
+collision_mask = 2
 script = ExtResource("1_wrnb3")
 sprite = NodePath("AnimatedSprite2D")
 
