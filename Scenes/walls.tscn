@@ -32,4 +32,3 @@ sources/0 = SubResource("TileSetAtlasSource_cxhnf")
 [node name="Walls" type="TileMapLayer" unique_id=1334353006]
 scale = Vector2(0.3, 0.3)
 tile_set = SubResource("TileSet_g4v7s")
-collision_visibility_mode = 1

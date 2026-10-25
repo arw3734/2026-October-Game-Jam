@@ -3,9 +3,63 @@
 [ext_resource type="Texture2D" uid="uid://brilu85hcck8l" path="res://Sprites/HideStuff/BoxHidingBack.png" id="1_3m1br"]
 [ext_resource type="Script" uid="uid://b1t5lb8bhn16c" path="res://Scripts/hiding_spot.gd" id="1_jpim1"]
 [ext_resource type="Texture2D" uid="uid://cvv7xwqcktffi" path="res://Sprites/HideStuff/BoxHidingFront.png" id="2_jpim1"]
+[ext_resource type="Texture2D" uid="uid://cekx1ejhrux7p" path="res://Sprites/Cat/Cat_sheet.png" id="3_gjci7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jpim1"]
 light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("3_gjci7")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("3_gjci7")
+region = Rect2(2000, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("3_gjci7")
+region = Rect2(4000, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("3_gjci7")
+region = Rect2(0, 2000, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("3_gjci7")
+region = Rect2(2000, 2000, 2000, 2000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acul1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(132, 104)
@@ -21,8 +75,18 @@ script = ExtResource("1_jpim1")
 
 [node name="BackSprite" type="Sprite2D" parent="." unique_id=1700891965]
 use_parent_material = true
+position = Vector2(0, 31.999998)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_3m1br")
+offset = Vector2(0, -639.99994)
+
+[node name="Cat" type="AnimatedSprite2D" parent="." unique_id=1639746495]
+visible = false
+use_parent_material = true
+position = Vector2(0, -17.800001)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_acul1")
+animation = &"idle"
 
 [node name="FrontSprite" type="Sprite2D" parent="." unique_id=1580468886]
 use_parent_material = true
@@ -46,6 +110,18 @@ polygon = PackedVector2Array(-42, -5, -35, 32, 36, 32, 44, -5)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1879099114]
 occluder = SubResource("OccluderPolygon2D_3m1br")
+
+[node name="Label" type="Label" parent="." unique_id=1008499379]
+visible = false
+z_index = 1
+offset_left = -62.0
+offset_top = 34.0
+offset_right = 62.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.10524041, 0.10524041, 0.1052404, 1)
+theme_override_colors/font_outline_color = Color(0.9282538, 0.89703447, 0.9709659, 1)
+theme_override_constants/outline_size = 3
+text = "Interact to hide!"
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

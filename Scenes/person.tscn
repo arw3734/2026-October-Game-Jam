@@ -47,7 +47,7 @@ animations = [{
 radius = 503.0805
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(46.000004, 40)
+size = Vector2(46.000004, 44.000008)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yf5fn"]
 light_mode = 1
@@ -61,13 +61,14 @@ script = ExtResource("1_wrnb3")
 sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=867173411]
+y_sort_enabled = true
 use_parent_material = true
-position = Vector2(0, -774)
+position = Vector2(0, 20)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk"
 frame_progress = 0.96205425
-offset = Vector2(0, 14000)
+offset = Vector2(0, -1879.9993)
 
 [node name="Area" type="Area2D" parent="." unique_id=1508754564]
 
@@ -85,6 +86,7 @@ sprite = NodePath("../AnimatedSprite2D")
 aggro = NodePath("../Aggro")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1547415745]
+position = Vector2(0, 2.000003)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.06738325, 0.6462446, 0.20327428, 0.41960785)

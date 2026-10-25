@@ -121,6 +121,7 @@ func clear_nearby_hide_spot(spot: Node2D) -> void:
 func enter_hiding(spot: Node2D) -> void:
 	current_hide_spot = spot
 	is_hidden = true
+	sprite.hide()
 	
 	spot.bring_up()
 	$PointLight2D.texture_scale = 1.0
@@ -138,6 +139,7 @@ func exit_hiding() -> void:
 		return
 	
 	global_position = current_hide_spot.exit_point.global_position
+	sprite.show()
 	
 	current_hide_spot.bring_down()
 	$PointLight2D.texture_scale = 10.0
