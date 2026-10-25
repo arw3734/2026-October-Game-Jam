@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("meow"):
 		noise_area.scale = Vector2(5,5)
-		# MEOW SFX
+		$Meow.play()
 		is_meowing = true
 		state.increase_score(1)
 		quiet.start()
@@ -119,6 +119,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rats"):
 		state.increase_score(5)
 		body.queue_free()
+		$Crunch.play()
 
 
 func _on_quiet_timeout() -> void:
