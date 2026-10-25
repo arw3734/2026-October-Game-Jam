@@ -62,7 +62,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
-size = Vector2(132, 104)
+size = Vector2(178, 174)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3m1br"]
 cull_mode = 2
@@ -102,7 +102,6 @@ position = Vector2(0, 51)
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1594757420]
-position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_riqys")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=179823568]

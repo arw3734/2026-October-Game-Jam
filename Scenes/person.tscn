@@ -53,7 +53,6 @@ size = Vector2(46.000004, 44.000008)
 light_mode = 1
 
 [node name="Person" type="CharacterBody2D" unique_id=1143240551 node_paths=PackedStringArray("sprite")]
-y_sort_enabled = true
 material = SubResource("CanvasItemMaterial_g4v7s")
 collision_layer = 4
 collision_mask = 2
@@ -61,14 +60,11 @@ script = ExtResource("1_wrnb3")
 sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=867173411]
-y_sort_enabled = true
 use_parent_material = true
-position = Vector2(0, 20)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk"
 frame_progress = 0.96205425
-offset = Vector2(0, -1879.9993)
 
 [node name="Area" type="Area2D" parent="." unique_id=1508754564]
 

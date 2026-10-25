@@ -124,7 +124,7 @@ func enter_hiding(spot: Node2D) -> void:
 	sprite.hide()
 	
 	spot.bring_up()
-	$PointLight2D.texture_scale = 1.0
+	$PointLight2D.texture_scale = 3.0
 	global_position = spot.hide_point.global_position
 	velocity = Vector2.ZERO
 	
@@ -181,6 +181,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	
 	if body.is_in_group("rats"):
+		if is_hidden:
+			return
+		
 		state.increase_score(5, "[shake rate=20.0 level=5 connected=1][color=red]Caught a rat![/color][/shake]")
 		mice_ate+=1
 		body.queue_free()

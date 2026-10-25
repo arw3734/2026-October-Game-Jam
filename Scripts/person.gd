@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var patrol_route: Node2D
 
 @export var patrol_speed: float = 120.0
-@export var chase_speed: float = 450.0
+@export var chase_speed: float = 400.0
 
 @onready var state_machine = $StateMachine
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D

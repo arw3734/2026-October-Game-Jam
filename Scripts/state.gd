@@ -7,6 +7,7 @@ var minutes: String
 var hours: int
 var score: int
 
+@export var rats: Node2D
 @export var rat_nav_region: NavigationRegion2D
 func _ready() -> void:
 	hours = 0
@@ -14,6 +15,11 @@ func _ready() -> void:
 	time_ms = 0
 	current_time = "12:00"
 	score = 0
+	
+	for i in range(10):
+			if rats.get_child_count() < 60:
+				var spawn_location = NavigationServer2D.region_get_random_point(rat_nav_region.get_rid(), 1, false)
+				get_parent().spawn_rat(spawn_location)
 
 signal score_added(points: int, reason: String)
 
@@ -32,8 +38,9 @@ func _on_time_timeout() -> void:
 	if time_ms % 75 == 0:
 		hours += 1
 		for i in range(10):
-			var spawn_location = NavigationServer2D.region_get_random_point(rat_nav_region.get_rid(), 1, false)
-			get_parent().spawn_rat(spawn_location)
+			if rats.get_child_count() < 60:
+				var spawn_location = NavigationServer2D.region_get_random_point(rat_nav_region.get_rid(), 1, false)
+				get_parent().spawn_rat(spawn_location)
 	
 	if time_ms < 75:
 		current_time = "12" + ":" + minutes
