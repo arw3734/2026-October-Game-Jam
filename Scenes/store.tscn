@@ -23,12 +23,6 @@ source_geometry_mode = 1
 source_geometry_group_name = &"nav_obstacles"
 agent_radius = 25.0
 
-<<<<<<< Updated upstream
-=======
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
-polygon = PackedVector2Array(-1986, -1797, -259, -1802, -250, -2006, -239, -2008, -234, -2298, 2993, -2307, 2993, -759, 2254, -756, 2250, -751, 2243, -743, 2244, 1492, 1007, 1492, 1000, 1500, 991, 1506, 992, 1742, -1991, 1742, -1991, -1789, -2221, -1936, -293, -2602, 3206, -2713, 3263, -421, 2446, -421, 2482, 1485, 2475, 1764, 1214, 1793, 462, 2051, -1974, 2022, -2360, 1549, -2260, 224, -2224, -1932)
-
->>>>>>> Stashed changes
 [node name="Store" type="Node2D" unique_id=747581114]
 y_sort_enabled = true
 script = ExtResource("1_x7ts4")
@@ -196,12 +190,6 @@ position = Vector2(1038, 604)
 
 [node name="Rats" type="Node2D" parent="." unique_id=1229121753]
 y_sort_enabled = true
-<<<<<<< Updated upstream
-=======
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1914758041]
-occluder = SubResource("OccluderPolygon2D_g4v7s")
 
 [node name="Obstacle" parent="." unique_id=28175313 instance=ExtResource("11_cd1ed")]
 position = Vector2(6, -1218)
->>>>>>> Stashed changes
