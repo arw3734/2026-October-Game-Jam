@@ -164,20 +164,26 @@ func _on_stamina_cooldown_timeout() -> void:
 func _on_stamina_recover_timeout() -> void:
 	stamina = min(stamina + recover_speed, 100)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
-		if is_hidden:
+func game_over(ignore_hiding: bool = false):
+		if is_hidden and not ignore_hiding:
 			return
 		
 		var next_scene_packed = load("res://Scenes/end_screen.tscn")
 		
 		var next_scene = next_scene_packed.instantiate()
 		
-		next_scene.time_spent_store = state.time_ms
+		next_scene.time_spent_store = (state.time_ms)/10
+		next_scene.time_spent_hide = (state.time_ms - state.hide_ms)/10
 		next_scene.score = state.score
 		next_scene.meows = meows
 		next_scene.mice_ate = mice_ate
+		
 		get_tree().call_deferred("change_scene_to_node", next_scene)
+		return
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		game_over()
 		return
 	
 	if body.is_in_group("rats"):

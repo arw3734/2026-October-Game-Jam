@@ -3,17 +3,19 @@ extends Node
 
 var current_time: String
 var time_ms: int
+var hide_ms: int
 var minutes: String
 var hours: int
 var score: int
 
+@export var player: CharacterBody2D
 @export var rats: Node2D
 @export var rat_nav_region: NavigationRegion2D
 func _ready() -> void:
 	hours = 0
 	minutes = "00"
 	time_ms = 0
-	current_time = "12:00"
+	current_time = "24:00"
 	score = 0
 	
 	for i in range(10):
@@ -29,6 +31,11 @@ func increase_score(value: int, text: String):
 
 func _on_time_timeout() -> void:
 	time_ms+=1
+	if player.is_hidden:
+		hide_ms+=1
+	
+	if time_ms >= 1800:
+		player.game_over(true)
 	
 	if time_ms % 75 > 75/2:
 		minutes = "30"
@@ -43,6 +50,6 @@ func _on_time_timeout() -> void:
 				get_parent().spawn_rat(spawn_location)
 	
 	if time_ms < 75:
-		current_time = "12" + ":" + minutes
+		current_time = "24" + ":" + minutes
 	else:
 		current_time = str(hours) + ":" + minutes

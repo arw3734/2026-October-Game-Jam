@@ -13,8 +13,8 @@ var meows: int
 var mice_ate: int
 
 func _ready():
-	time_spent_store_label.text = "Lasted: " + str(time_spent_store)
-	time_spent_hide_label.text = "Out of Hiding For: " + str(time_spent_hide)
+	time_spent_store_label.text = "Lasted: " + str(time_spent_store) + " seconds"
+	time_spent_hide_label.text = "Out of Hiding For: " + str(time_spent_hide) + " seconds"
 	mice_ate_label.text = "Mice caught: " + str(mice_ate)
 	meows_label.text = "Meows: " + str(meows)
 	score_label.text = "Total Score: " + str(score)
