@@ -134,6 +134,12 @@ func can_hear_player() -> bool:
 	return noise_area.overlaps_body(person)
 
 func can_detect_player() -> bool:
+	if not is_instance_valid(player):
+		return false
+	
+	if player.get("is_hidden") == true:
+		return false
+	
 	return can_see_player() or can_hear_player()
 	
 func update_patrol():

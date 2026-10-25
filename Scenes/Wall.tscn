@@ -6,11 +6,11 @@
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(623.5, 63.25)
+size = Vector2(629, 70)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
 cull_mode = 2
-polygon = PackedVector2Array(-312, 58, 312, 56, 320, 118, -311, 119)
+polygon = PackedVector2Array(-309, 65, 312, 56, 321, 81, 319, 121, -309, 125, -309.00003, 93.75772)
 
 [node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
 light_mask = 0
@@ -20,17 +20,17 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
-y_sort_enabled = true
 use_parent_material = true
-position = Vector2(0, 76)
+position = Vector2(0, 20)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_2p0br")
-offset = Vector2(0, -506.66666)
+offset = Vector2(0, -133.333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105813043]
 visibility_layer = 2
-position = Vector2(0, 88.625)
+position = Vector2(5.5, 88)
 shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1659452533]
+position = Vector2(0, 1)
 occluder = SubResource("OccluderPolygon2D_g4v7s")

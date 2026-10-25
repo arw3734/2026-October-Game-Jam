@@ -32,10 +32,10 @@ texture = ExtResource("1_1daft")
 offset = Vector2(0, -2406.667)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1017149706]
-polygon = PackedVector2Array(-357, 458, -163, 459, -137, 300, -142, 224, -229, 234, -361, 349)
+polygon = PackedVector2Array(-357, 458, -163, 459, -173, 334, -137, 300, -142, 224, -229, 234, -361, 349)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=1088543045]
-polygon = PackedVector2Array(140, 299, 169, 459, 361, 461, 364, 350, 240, 227, 144, 222)
+polygon = PackedVector2Array(140, 299, 174, 335, 169, 459, 361, 461, 364, 350, 240, 227, 144, 222)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2007484674]
 position = Vector2(0, 361)

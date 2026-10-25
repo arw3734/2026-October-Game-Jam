@@ -2,10 +2,9 @@ extends Control
 
 
 func _on_play_pressed() -> void:
-	var game = preload("res://Scenes/tutorial.tscn").instantiate();
+	var tutorial = preload("res://Scenes/tutorial.tscn").instantiate();
 	
-	get_tree().change_scene_to_node(game)
-
+	get_tree().change_scene_to_node(tutorial)
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

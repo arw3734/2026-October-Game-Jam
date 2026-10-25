@@ -16,6 +16,10 @@ var is_meowing: bool = false
 var meows: int = 0
 var mice_ate: int = 0
 
+var is_hidden: bool = false
+var nearby_hide_spot: Node2D = null
+var current_hide_spot: Node2D = null
+
 @onready var stamina_ticker = $StaminaTick
 @onready var stamina_cooldown = $StaminaCooldown
 @onready var stamina_recover = $StaminaRecover
@@ -24,6 +28,19 @@ func _ready():
 	camera.enabled = true
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		if is_hidden:
+			exit_hiding()
+		elif is_instance_valid(nearby_hide_spot):
+			enter_hiding(nearby_hide_spot)
+	
+	if is_hidden:
+		velocity = Vector2.ZERO
+		
+		if stamina < 100 and stamina_recover.is_stopped():
+			stamina_recover.start()
+		return
+	
 	var sprinting = (
 		Input.is_action_pressed("sprint")
 		and stamina > 0
@@ -31,11 +48,12 @@ func _physics_process(delta: float) -> void:
 	)
 	
 	if Input.is_action_just_pressed("meow"):
-		noise_area.scale = Vector2(5,5)
-		$Meow.play()
-		meows+=1
+		if not is_meowing:
+			$Meow.play()
+			meows+=1
+			noise_area.scale = Vector2(7,7)
+			state.increase_score(1, "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Meowed![/rainbow]")
 		is_meowing = true
-		state.increase_score(1, "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Meowed![/rainbow]")
 		quiet.start()
 	
 	SPEED = 600.0 if sprinting else 300.0
@@ -46,8 +64,8 @@ func _physics_process(delta: float) -> void:
 		
 		if (sprite.animation != "run"):
 			$Sprite.play("run")
-		
-		noise_area.scale = Vector2(1.5,1.5)
+		if not is_meowing:
+			noise_area.scale = Vector2(1.5,1.5)
 		if not ticking:
 			stamina_ticker.start()
 			ticking = true
@@ -92,6 +110,43 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func set_nearby_hide_spot(spot: Node2D) -> void:
+	nearby_hide_spot = spot
+
+func clear_nearby_hide_spot(spot: Node2D) -> void:
+	if nearby_hide_spot == spot:
+		nearby_hide_spot = null
+
+
+func enter_hiding(spot: Node2D) -> void:
+	current_hide_spot = spot
+	is_hidden = true
+	
+	spot.bring_up()
+	$PointLight2D.texture_scale = 1.0
+	global_position = spot.hide_point.global_position
+	velocity = Vector2.ZERO
+	
+	stamina_ticker.stop()
+	ticking = false
+	
+	sprite.play("idle")
+
+
+func exit_hiding() -> void:
+	if not is_instance_valid(current_hide_spot):
+		return
+	
+	global_position = current_hide_spot.exit_point.global_position
+	
+	current_hide_spot.bring_down()
+	$PointLight2D.texture_scale = 10.0
+	
+	is_hidden = false
+	current_hide_spot = null
+	velocity = Vector2.ZERO
+
+
 func _on_stamina_tick_timeout() -> void:
 	stamina = max(stamina - tick_speed, 0)
 	
@@ -105,14 +160,13 @@ func _on_stamina_cooldown_timeout() -> void:
 	can_run = true
 
 func _on_stamina_recover_timeout() -> void:
-	if stamina < 100:
-		stamina += recover_speed
-	else:
-		stamina = 100
+	stamina = min(stamina + recover_speed, 100)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		print("LOSE")
+		if is_hidden:
+			return
+		
 		var next_scene_packed = load("res://Scenes/end_screen.tscn")
 		
 		var next_scene = next_scene_packed.instantiate()
@@ -121,17 +175,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		next_scene.score = state.score
 		next_scene.meows = meows
 		next_scene.mice_ate = mice_ate
-		get_tree().root.add_child(next_scene)
-		get_tree().current_scene = next_scene
-		queue_free()
+		get_tree().call_deferred("change_scene_to_node", next_scene)
+		return
 	
 	if body.is_in_group("rats"):
 		state.increase_score(5, "[shake rate=20.0 level=5 connected=1][color=red]Caught a rat![/color][/shake]")
-		state.increase_score(5, "Caught a rat!")
 		mice_ate+=1
 		body.queue_free()
 		$Crunch.play()
-
 
 func _on_quiet_timeout() -> void:
 	noise_area.scale = Vector2(1,1)

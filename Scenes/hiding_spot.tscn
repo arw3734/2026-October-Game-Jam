@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://htlwlbybtnai"]
+
+[ext_resource type="Texture2D" uid="uid://brilu85hcck8l" path="res://Sprites/HideStuff/BoxHidingBack.png" id="1_3m1br"]
+[ext_resource type="Script" uid="uid://b1t5lb8bhn16c" path="res://Scripts/hiding_spot.gd" id="1_jpim1"]
+[ext_resource type="Texture2D" uid="uid://cvv7xwqcktffi" path="res://Sprites/HideStuff/BoxHidingFront.png" id="2_jpim1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jpim1"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
+size = Vector2(132, 104)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3m1br"]
+cull_mode = 2
+polygon = PackedVector2Array(-42, -5, 44, -5, 36, 32, -35, 32)
+
+[node name="HidingSpot" type="StaticBody2D" unique_id=346798814]
+material = SubResource("CanvasItemMaterial_jpim1")
+collision_layer = 2
+script = ExtResource("1_jpim1")
+
+[node name="BackSprite" type="Sprite2D" parent="." unique_id=1700891965]
+use_parent_material = true
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_3m1br")
+
+[node name="FrontSprite" type="Sprite2D" parent="." unique_id=1580468886]
+use_parent_material = true
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_jpim1")
+
+[node name="HidePoint" type="Marker2D" parent="." unique_id=496701669]
+
+[node name="ExitPoint" type="Marker2D" parent="." unique_id=386403590]
+position = Vector2(0, 51)
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=509849891]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1594757420]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_riqys")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=179823568]
+polygon = PackedVector2Array(-42, -5, -35, 32, 36, 32, 44, -5)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1879099114]
+occluder = SubResource("OccluderPolygon2D_3m1br")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
