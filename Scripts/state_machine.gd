@@ -61,6 +61,7 @@ func swap_state(state_name: String):
 			current_state = STATE.AGGRO
 			sprite.play("walk")
 			aggro.show()
+			$"../AudioStreamPlayer2D".play()
 			
 			repath_timer = 0.0
 			lost_sight_timer = 0.0

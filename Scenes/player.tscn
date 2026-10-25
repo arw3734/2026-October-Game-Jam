@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cekx1ejhrux7p" path="res://Sprites/Cat/Cat_sheet.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://dbt67cwnfgl0f" path="res://light.png" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://bcjt50noaa48s" path="res://Sounds/Meow.mp3" id="4_fkybt"]
+[ext_resource type="AudioStream" uid="uid://cd4kxe53ml4r6" path="res://Sounds/Crunch.mp3" id="5_x3wgy"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f3gkj"]
 light_mode = 1
@@ -128,6 +130,12 @@ collision_mask = 4
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.84796405, 0.0009481758, 0.9061362, 0.41960785)
+
+[node name="Meow" type="AudioStreamPlayer2D" parent="." unique_id=1887167314]
+stream = ExtResource("4_fkybt")
+
+[node name="Crunch" type="AudioStreamPlayer2D" parent="." unique_id=1506012729]
+stream = ExtResource("5_x3wgy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="StaminaTick" to="." method="_on_stamina_tick_timeout"]

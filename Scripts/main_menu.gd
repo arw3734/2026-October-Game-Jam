@@ -14,6 +14,7 @@ func _on_exit_pressed() -> void:
 func _on_pet_button_pressed() -> void:
 	$MeowBox.show()
 	$PetButton/petTimer.start()
+	$AudioStreamPlayer.play()
 
 
 func _on_pet_timer_timeout() -> void:
