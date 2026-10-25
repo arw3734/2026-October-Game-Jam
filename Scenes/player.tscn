@@ -11,7 +11,7 @@ light_mode = 1
 size = Vector2(48, 19)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 121.016525
+radius = 44.407207
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("2_6t5aa")
@@ -79,6 +79,7 @@ debug_color = Color(0.29264665, 0.62978876, 0, 0.41960785)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1088050337]
 position = Vector2(0, -33)
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=92701900]
 position = Vector2(0, 18)
@@ -112,6 +113,7 @@ one_shot = true
 
 [node name="StaminaCooldown" type="Timer" parent="." unique_id=42243586]
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="StaminaTick" to="." method="_on_stamina_tick_timeout"]
 [connection signal="timeout" from="StaminaRecover" to="." method="_on_stamina_recover_timeout"]
 [connection signal="timeout" from="StaminaCooldown" to="." method="_on_stamina_cooldown_timeout"]

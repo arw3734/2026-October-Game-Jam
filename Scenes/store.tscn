@@ -19,7 +19,7 @@ source_geometry_group_name = &"nav_obstacles"
 agent_radius = 45.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_riqys"]
-vertices = PackedVector2Array(414, -58, 892.9219, 94.89844, -261.10156, 88.09375, 255, -58, 890.0703, -494.89063, 414, -344, -264.89063, -487.10156, 255, -344)
+vertices = PackedVector2Array(423, -49, 883.8672, 85.85156, -252.15625, 79.140625, 246, -49, 881.1172, -485.82813, 423, -353, -255.82813, -478.15625, 246, -353)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(906, -511, 909, 111, -277, 104, -281, -503)])
 parsed_geometry_type = 1
@@ -38,14 +38,6 @@ script = ExtResource("1_x7ts4")
 position = Vector2(649, 417)
 texture = ExtResource("2_a54sg")
 
-[node name="Obstacles" type="Node2D" parent="." unique_id=986812265 groups=["nav_obstacles"]]
-
-[node name="Obstacle" parent="Obstacles" unique_id=1974016665 instance=ExtResource("6_m7h4d")]
-position = Vector2(658, 286)
-
-[node name="Obstacle2" parent="Obstacles" unique_id=914132982 instance=ExtResource("6_m7h4d")]
-position = Vector2(658, 414)
-
 [node name="State" parent="." unique_id=940971249 node_paths=PackedStringArray("rat_nav_region") instance=ExtResource("3_s3f3m")]
 rat_nav_region = NodePath("../RatNavigationRegion")
 
@@ -56,8 +48,9 @@ navigation_polygon = SubResource("NavigationPolygon_bhunq")
 position = Vector2(325, 553)
 navigation_polygon = SubResource("NavigationPolygon_riqys")
 
-[node name="Player" parent="." unique_id=1816450137 instance=ExtResource("1_c176v")]
+[node name="Player" parent="." unique_id=1816450137 node_paths=PackedStringArray("state") instance=ExtResource("1_c176v")]
 position = Vector2(462, 535)
+state = NodePath("../State")
 
 [node name="UI" parent="Player" unique_id=2143664663 node_paths=PackedStringArray("state") instance=ExtResource("4_s3f3m")]
 anchors_preset = 0
@@ -90,3 +83,11 @@ position = Vector2(1038, 604)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1914758041]
 occluder = SubResource("OccluderPolygon2D_g4v7s")
+
+[node name="Obstacles" type="Node2D" parent="LightOccluder2D" unique_id=986812265 groups=["nav_obstacles"]]
+
+[node name="Obstacle" parent="LightOccluder2D/Obstacles" unique_id=1974016665 instance=ExtResource("6_m7h4d")]
+position = Vector2(658, 286)
+
+[node name="Obstacle2" parent="LightOccluder2D/Obstacles" unique_id=914132982 instance=ExtResource("6_m7h4d")]
+position = Vector2(658, 414)

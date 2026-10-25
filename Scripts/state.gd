@@ -5,12 +5,18 @@ var current_time: String
 var time_ms: int
 var minutes: String
 var hours: int
+var score: int
+
 @export var rat_nav_region: NavigationRegion2D
 func _ready() -> void:
 	hours = 0
 	minutes = "00"
 	time_ms = 0
 	current_time = "12:00"
+	score = 0
+
+func increase_score(value: int):
+	score += value
 
 func _on_time_timeout() -> void:
 	time_ms+=1

@@ -4,8 +4,9 @@ const recover_speed = 2
 const tick_speed = 5
 
 var SPEED = 300.0
-@export var sprite := AnimatedSprite2D
-@export var camera:= Camera2D
+@export var state: Node
+@export var sprite: AnimatedSprite2D
+@export var camera: Camera2D
 var direction: Vector2
 var stamina = 100
 var can_run: bool = true
@@ -88,3 +89,12 @@ func _on_stamina_recover_timeout() -> void:
 		stamina += recover_speed
 	else:
 		stamina = 100
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		# Lose code goes here
+		pass
+	
+	if body.is_in_group("rats"):
+		state.increase_score(5)
+		body.queue_free()

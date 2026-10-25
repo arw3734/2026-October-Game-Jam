@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 @onready var rat_region: NavigationRegion2D = $RatNavigationRegion
 
 var rat_nav_map: RID
@@ -25,14 +23,13 @@ func _ready() -> void:
 	for rat in get_tree().get_nodes_in_group("rats"):
 		register_rat(rat)
 
-
 func register_rat(rat: Node2D) -> void:
 	var agent: NavigationAgent2D = (
 		rat.get_node("NavigationAgent2D")
 	)
-
+	
 	agent.set_navigation_map(rat_nav_map)
-
+	rat.add_to_group("rats")
 
 func _exit_tree() -> void:
 	if rat_nav_map.is_valid():
