@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		noise_area.scale = Vector2(5,5)
 		# MEOW SFX
 		is_meowing = true
+		state.increase_score(1)
 		quiet.start()
 	
 	SPEED = 600.0 if sprinting else 300.0

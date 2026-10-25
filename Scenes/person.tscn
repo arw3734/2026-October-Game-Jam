@@ -48,6 +48,9 @@ radius = 241.53053
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(46.000004, 40)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yf5fn"]
+light_mode = 1
+
 [node name="Person" type="CharacterBody2D" unique_id=1143240551 node_paths=PackedStringArray("sprite")]
 material = SubResource("CanvasItemMaterial_g4v7s")
 collision_layer = 4
@@ -85,6 +88,7 @@ debug_color = Color(0.06738325, 0.6462446, 0.20327428, 0.41960785)
 
 [node name="Aggro" type="Sprite2D" parent="." unique_id=1645979229]
 visible = false
+material = SubResource("CanvasItemMaterial_yf5fn")
 position = Vector2(0, -209.00002)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_gy353")
