@@ -26,6 +26,12 @@ var patrol_points: Array[Marker2D] = []
 var patrol_index: int = 0
 var patrol_target_set: bool = false
 
+@export_range(1, 6, 1) var patrol_max_step: int = 3
+@export var nearby_guard_radius: float = 500.0
+@export var patrol_target_spacing: float = 300.0
+
+var patrol_direction: int = 1
+
 var repath_timer: float = 0.0
 var lost_sight_timer: float = 0.0
 var search_timer: float = 0.0
@@ -41,6 +47,8 @@ func configure(player_ref: CharacterBody2D, patrol_route: Node2D) -> void:
 				patrol_points.append(child as Marker2D)
 	current_state = STATE.PASSIVE
 	patrol_target_set = false
+	
+	patrol_direction = -1 if randf() < 0.5 else 1
 	sprite.play("walk")
 
 func swap_state(state_name: String):
@@ -137,23 +145,96 @@ func update_patrol():
 		return
 	
 	if not patrol_target_set:
-		set_patrol_target()
+		choose_nearest_patrol_target()
 		return
 	
 	if nav_agent.is_navigation_finished():
 		advance_patrol()
+
+
+func choose_nearest_patrol_target() -> void:
+	if patrol_points.is_empty():
+		return
+	
+	var closest_index: int = 0
+	var closest_distance: float = INF
+	var available_index: int = -1
+	var available_distance: float = INF
+	
+	for i in range(patrol_points.size()):
+		var distance: float = person.global_position.distance_squared_to(patrol_points[i].global_position)
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_index = i
+		if not is_patrol_point_busy(i) and distance < available_distance:
+			available_distance = distance
+			available_index = i
+	
+	patrol_index = available_index if available_index != -1 else closest_index
+	
+	set_patrol_target()
 
 func set_patrol_target():
 	if patrol_points.is_empty():
 		return
 	
 	nav_agent.target_position = patrol_points[patrol_index].global_position
-	
 	patrol_target_set = true
 
-func advance_patrol():
-	patrol_index = (patrol_index + 1) % patrol_points.size()
+
+func advance_patrol() -> void:
+	if patrol_points.size() <= 1:
+		return
+	
+	var choices: Array[int] = []
+	var max_step: int = mini(patrol_max_step, patrol_points.size() - 1)
+	
+	for step in range(1, max_step + 1):
+		var index: int = posmod(patrol_index + patrol_direction * step, patrol_points.size())
+		
+		if not is_patrol_point_busy(index):
+			choices.append(index)
+	
+	if choices.is_empty():
+		patrol_index = posmod(patrol_index + patrol_direction, patrol_points.size())
+	else:
+		patrol_index = choices.pick_random()
 	set_patrol_target()
+
+
+func is_patrol_point_busy(index: int) -> bool:
+	var target: Vector2 = patrol_points[index].global_position
+	
+	for other in get_tree().get_nodes_in_group("enemies"):
+		var other_person := other as CharacterBody2D
+		
+		if other_person == null or other_person == person:
+			continue
+		
+		if person.global_position.distance_squared_to(
+			other_person.global_position
+		) > nearby_guard_radius * nearby_guard_radius:
+			continue
+		
+		var other_machine := other_person.get_node_or_null("StateMachine")
+		var other_agent := other_person.get_node_or_null("NavigationAgent2D") as NavigationAgent2D
+		
+		if other_machine == null or other_agent == null:
+			continue
+		
+		if other_machine.get("current_state") != STATE.PASSIVE:
+			continue
+		
+		if not other_machine.get("patrol_target_set"):
+			continue
+		
+		if target.distance_squared_to(
+			other_agent.target_position
+		) < patrol_target_spacing * patrol_target_spacing:
+			return true
+	
+	return false
+
 
 func update_aggro(delta: float):
 	if can_detect_player():

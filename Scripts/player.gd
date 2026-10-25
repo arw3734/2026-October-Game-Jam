@@ -24,7 +24,6 @@ func _ready():
 	camera.enabled = true
 
 func _physics_process(delta: float) -> void:
-	
 	var sprinting = (
 		Input.is_action_pressed("sprint")
 		and stamina > 0
