@@ -2,11 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://df6yi6tym77co" path="res://Sprites/MapStuff/housethingy.png" id="1_1daft"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1daft"]
+polygon = PackedVector2Array(-1113.3333, 653.3335, -893.3333, -453.33325, -946.6666, -906.6665, -1586.6666, -893.33325, -2400, -113.33325, -2380, 646.66675)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
+polygon = PackedVector2Array(167, 459, 361, 461, 364, 347, 248, 224, 148, 223, 142, 298)
+
 [node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
 light_mask = 0
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2007484674]
+position = Vector2(0, 361)
+scale = Vector2(0.15, 0.15)
+occluder = SubResource("OccluderPolygon2D_1daft")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
 position = Vector2(0, 361)
@@ -19,3 +30,6 @@ polygon = PackedVector2Array(-357, 458, -163, 459, -137, 300, -142, 224, -229, 2
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=1088543045]
 polygon = PackedVector2Array(140, 299, 169, 459, 361, 461, 364, 350, 240, 227, 144, 222)
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="." unique_id=1787752346]
+occluder = SubResource("OccluderPolygon2D_g4v7s")

@@ -4,7 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b7gw87rwcdcs" path="res://Sprites/StaminaBar/stamina bar empty.png" id="2_nf4gj"]
 [ext_resource type="Texture2D" uid="uid://whkbmu80hx7u" path="res://Sprites/StaminaBar/stamina bar full.png" id="3_2246s"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nf4gj"]
+light_mode = 1
+
 [node name="UI" type="Control" unique_id=2143664663 node_paths=PackedStringArray("time_label", "stamina_bar")]
+z_index = 200
+material = SubResource("CanvasItemMaterial_nf4gj")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,31 +17,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fyqef")
-time_label = NodePath("Time")
+time_label = NodePath("MarginContainer/Time")
 stamina_bar = NodePath("StaminaBar")
 
-[node name="Time" type="Label" parent="." unique_id=154113445]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 631.0
-offset_top = 34.0
-offset_right = 3611.2402
-offset_bottom = 17.0
-text = "12:00"
-
 [node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=2118344477]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = 584.0
-offset_right = -726.0
-offset_bottom = -22.0
+offset_left = 31.0
+offset_top = 548.0
+offset_right = -713.0
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 100.0
 texture_under = ExtResource("2_nf4gj")
 texture_progress = ExtResource("3_2246s")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=97920237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -573.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="Label" parent="MarginContainer" unique_id=154113445]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.8745098, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "12:00"
+horizontal_alignment = 1

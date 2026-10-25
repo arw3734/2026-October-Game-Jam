@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b5yn0wvporisi"]
+
+[ext_resource type="Texture2D" uid="uid://bwi84cdkb1xwb" path="res://Sprites/MapStuff/Fishing Friend.png" id="1_5pgqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(46, 29.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
+polygon = PackedVector2Array(-18, 298, -67, 298, -69, 279, -36, 267, -22, 277)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yf5fn"]
+polygon = PackedVector2Array(16, 298, 64, 297, 67, 277, 41, 268, 25, 270, 18, 280)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
+light_mask = 0
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910433717]
+position = Vector2(-0.99999994, 273.99997)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_5pgqf")
+offset = Vector2(9.999999, -2739.9998)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=808420248]
+visibility_layer = 2
+position = Vector2(-44, 283)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105813043]
+visibility_layer = 2
+position = Vector2(42, 282.75)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=36968225]
+occluder = SubResource("OccluderPolygon2D_g4v7s")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="." unique_id=977451441]
+occluder = SubResource("OccluderPolygon2D_yf5fn")

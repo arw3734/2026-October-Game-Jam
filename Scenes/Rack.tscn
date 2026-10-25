@@ -5,6 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(117.5, 36.5)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6wum4"]
+polygon = PackedVector2Array(-649.99994, 6.1035156e-05, 539.99994, 6.1035156e-05, 539.99994, 290, -649.99994, 300)
+
 [node name="Obstacle" type="StaticBody2D" unique_id=1974016665]
 light_mask = 0
 y_sort_enabled = true
@@ -21,3 +24,8 @@ offset = Vector2(0, -739.99994)
 visibility_layer = 2
 position = Vector2(-5.75, 92.25)
 shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1652849900]
+position = Vector2(0, 73.99999)
+scale = Vector2(0.1, 0.1)
+occluder = SubResource("OccluderPolygon2D_6wum4")

@@ -5,11 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://2nt22cmrp3n4" path="res://artwork_1.jpg" id="2_a54sg"]
 [ext_resource type="PackedScene" uid="uid://dna4somx52x48" path="res://Scenes/walls.tscn" id="2_f3gkj"]
 [ext_resource type="PackedScene" uid="uid://davspuhu65btt" path="res://Scenes/state.tscn" id="3_s3f3m"]
+[ext_resource type="Texture2D" uid="uid://duoxcqsxxlm6y" path="res://Sprites/MapStuff/Tile.png" id="3_w72gx"]
 [ext_resource type="PackedScene" uid="uid://cnp7b8rf6fcwc" path="res://Scenes/Rack.tscn" id="4_cwvkk"]
 [ext_resource type="PackedScene" uid="uid://b4ei8y1swima1" path="res://Scenes/ui.tscn" id="4_s3f3m"]
 [ext_resource type="PackedScene" uid="uid://5skxgpmgy8pt" path="res://Scenes/person.tscn" id="5_jdgcu"]
 [ext_resource type="PackedScene" uid="uid://qhoy3egram1k" path="res://Scenes/Wall.tscn" id="5_w72gx"]
 [ext_resource type="PackedScene" uid="uid://cu7dlb4j04dx2" path="res://Scenes/House thingy.tscn" id="10_w72gx"]
+[ext_resource type="PackedScene" uid="uid://b5yn0wvporisi" path="res://Scenes/Fishing Friend.tscn" id="11_cd1ed"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_riqys"]
 vertices = PackedVector2Array(635, 1158, -2285, 1158, -1715, 1110.5, 635, 922, 2577, -1776.5, 2577, -1527, 2409.5, -1527, -700.25, -1617.75, -700.25, -1731, 2409.5, -1776.5, -1636, -2010.5, -1373.75, -2042.75, -700.25, -2042.75, -1373.75, -1731, -1636, -1761, 2068.5, -1776.5, -420.75, -2080.75, 252.75, -2080.75, 2068.5, -1863, 1828.75, -373.75, 1828.75, -487, 1885, -1328, 1885, 908, 1155.25, -487, 61.28125, -623.1328, -77.171875, -760.46875, -1882.5, 1110.5, 2577, -1863, 2409.5, -1863, 446.25, -2080.75, -2056, 1110.5, 2635, -2820, 2635, -1342, 2552.75, -2194, 1879.25, -2194, 252.75, -2505.75, 446.25, -2505.75, 2552.75, -2080.75, 2552.75, -2505.75, -2223.5, 1110.5, 1828.75, 51.25, 1754, 490.5, 1754, 404, 2552.75, -2619, 1754, 826.5, 650, 908, 1586.5, 826.5, 1413, 826.5, 1245.5, 826.5, -2285, 476.25, -2223.5, 1024, 2577, -1440.5, 1900, -1342, 2409.5, -1440.5, 2236, -1440.5, 2068.5, -1440.5, -535, -2820, 1879.25, -2619, -1636, -1674.5, -1373.75, -1617.75, 1155.25, 51.25, 1586.5, 404, -420.75, -2194, -700.25, -2156, -550, -2320, -1636, -2097, -1373.75, -2156, 57.328125, -476.75, 1155.25, -373.75, -901.25, 51.25, -901.25, -62, 1155.25, -62, -1715, 1024, -1715, 774.5, -1715, 688, -1617.25, 476.25, 1245.5, 740, 1245.5, 404, 1245.5, 490.5, -901.25, 476.25, -901.25, 363, 1879.25, -2080.75, 1119.75, -2080.75, 1119.75, -2194, -420.75, -2505.75, 446.25, -2194, -1803.5, -2097, -1803.5, -2010.5, -1977, -2010.5, -1977, -2097, 2236, -1776.5, 2236, -1863, -1803.5, -1761, -1803.5, -1674.5, -1977, -1674.5, -1977, -1761, 2236, -1527, 2068.5, -1527, 1900, -1328, 1586.5, 490.5, 1413, 490.5, 1413, 404, -1574.75, 51.25, -1574.75, 363, 1586.5, 740, 1413, 740, -1882.5, 688, -1882.5, 774.5, -2056, 774.5, -2056, 688, 650, 922, -1882.5, 1024, -2056, 1024, -2223.5, 774.5, -2223.5, 688, -1617.25, 363, -2285, 363, -2285, 51.25, -1617.25, 51.25, -1617.25, -62, -2285, -62, -2285, -399.75, -1617.25, -399.75, -1617.25, -513, -2285, -513, -2285, -824.75, -1617.25, -824.75, -550, -2528, -535, -2528, 1879.25, -2505.75, 1119.75, -2505.75, 1119.75, -2619, 446.25, -2619, -207.67188, -767.27344, -439.8672, -661.78906, -213.11719, -662.39844, -469.77344, -478.89063, -446.78125, -766.8281, -567.5703, -752.9531, -714.4219, -625.0078, -179.92188, -479.21875, 1754, 740, -1574.75, 476.25, -709.10156, -480.1172, -2144.5, -1674.5, -1617.25, -938, -2144.5, -2010.5, -2144.5, -1761, -2285, -2320, 252.75, -2619, -420.75, -2619, 252.75, -2194, -2144.5, -2097, -2285, -938, -1574.75, -62, 1828.75, -62)
@@ -21,18 +23,29 @@ source_geometry_mode = 1
 source_geometry_group_name = &"nav_obstacles"
 agent_radius = 25.0
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
+polygon = PackedVector2Array(-1986, -1797, -259, -1802, -250, -2006, -239, -2008, -234, -2298, 2993, -2307, 2993, -759, 2254, -756, 2250, -751, 2243, -743, 2244, 1492, 1007, 1492, 1000, 1500, 991, 1506, 992, 1742, -1991, 1742, -1991, -1789, -2221, -1936, -293, -2602, 3206, -2713, 3263, -421, 2446, -421, 2482, 1485, 2475, 1764, 1214, 1793, 462, 2051, -1974, 2022, -2360, 1549, -2260, 224, -2224, -1932)
+
+>>>>>>> Stashed changes
 [node name="Store" type="Node2D" unique_id=747581114]
 y_sort_enabled = true
 script = ExtResource("1_x7ts4")
 
 [node name="Walls" parent="." unique_id=1334353006 instance=ExtResource("2_f3gkj")]
+z_index = -5
 scale = Vector2(0.1, 0.1)
 tile_map_data = PackedByteArray("AAD///b/AAAAAAAAAAAAAPb/AAABAAAAAAABAPb/AAABAAAAAAACAPb/AAABAAAAAAADAPb/AAABAAAAAAAEAPb/AAABAAAAAAAFAPb/AAABAAAAAAAGAPb/AAABAAAAAAAHAPb/AAABAAAAAAAIAPb/AAABAAAAAAAJAPb/AAABAAAAAAAKAPb/AAABAAAAAAALAPb/AAACAAAAAAALAPf/AAACAAEAAAALAPj/AAACAAEAAAALAPn/AAACAAEAAAALAPr/AAACAAEAAAALAPv/AAACAAEAAAALAPz/AAACAAIAAAAKAPz/AAABAAIAAAAJAPz/AAABAAIAAAAIAP3/AAACAAEAAAAIAP7/AAACAAEAAAAIAP//AAACAAEAAAAIAAAAAAACAAEAAAAIAAEAAAACAAEAAAAIAAIAAAACAAEAAAAIAAMAAAACAAEAAAD///f/AAAAAAEAAAD+//j/AAABAAAAAAD9//j/AAABAAAAAAD8//j/AAABAAAAAAD7//j/AAABAAAAAAD6//j/AAABAAAAAAD5//j/AAABAAAAAAD4//j/AAAAAAAAAAD4//n/AAAAAAEAAAD4//r/AAAAAAEAAAD4//v/AAAAAAEAAAD4//z/AAAAAAEAAAD4//3/AAAAAAEAAAD4//7/AAAAAAEAAAD4////AAAAAAEAAAD4/wAAAAAAAAEAAAD4/wEAAAAAAAEAAAD4/wIAAAAAAAEAAAD4/wMAAAAAAAEAAAD4/wQAAAAAAAEAAAD4/wUAAAAAAAEAAAD4/wYAAAAAAAIAAAD5/wYAAAABAAIAAAD6/wYAAAABAAIAAAD7/wYAAAABAAIAAAD8/wYAAAABAAIAAAD9/wYAAAABAAIAAAD+/wYAAAABAAIAAAD//wYAAAABAAIAAAAAAAYAAAABAAIAAAABAAYAAAABAAIAAAACAAYAAAABAAIAAAADAAYAAAACAAIAAAAEAAUAAAABAAIAAAAFAAUAAAABAAIAAAAGAAUAAAABAAIAAAAHAAUAAAABAAIAAAAIAAUAAAACAAIAAAAIAAQAAAACAAEAAAA=")
 
 [node name="Artwork1" type="Sprite2D" parent="." unique_id=508578759]
-visible = false
-position = Vector2(649, 417)
-texture = ExtResource("2_a54sg")
+z_index = -20
+texture_repeat = 2
+position = Vector2(237, -107)
+scale = Vector2(0.8037867, 0.8037867)
+texture = ExtResource("3_w72gx")
+region_enabled = true
+region_rect = Rect2(-4726.7363, -3509.1157, 11367.669, 8597.539)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=986812265 groups=["nav_obstacles"]]
 y_sort_enabled = true
@@ -183,3 +196,12 @@ position = Vector2(1038, 604)
 
 [node name="Rats" type="Node2D" parent="." unique_id=1229121753]
 y_sort_enabled = true
+<<<<<<< Updated upstream
+=======
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1914758041]
+occluder = SubResource("OccluderPolygon2D_g4v7s")
+
+[node name="Obstacle" parent="." unique_id=28175313 instance=ExtResource("11_cd1ed")]
+position = Vector2(6, -1218)
+>>>>>>> Stashed changes
