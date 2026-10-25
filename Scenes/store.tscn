@@ -65,16 +65,16 @@ position = Vector2(2001, 908)
 position = Vector2(1660, 908)
 
 [node name="Obstacle9" parent="Obstacles" unique_id=1834855291 instance=ExtResource("4_cwvkk")]
-position = Vector2(2824, -1023)
+position = Vector2(2784, -1023)
 
 [node name="Obstacle10" parent="Obstacles" unique_id=79628097 instance=ExtResource("4_cwvkk")]
-position = Vector2(2483, -1023)
+position = Vector2(2443, -1023)
 
 [node name="Obstacle11" parent="Obstacles" unique_id=923297495 instance=ExtResource("4_cwvkk")]
-position = Vector2(2824, -1359)
+position = Vector2(2784, -1359)
 
 [node name="Obstacle12" parent="Obstacles" unique_id=1843016663 instance=ExtResource("4_cwvkk")]
-position = Vector2(2483, -1359)
+position = Vector2(2443, -1359)
 
 [node name="Obstacle13" parent="Obstacles" unique_id=1767879666 instance=ExtResource("4_cwvkk")]
 position = Vector2(-1389, -1257)
@@ -89,16 +89,16 @@ position = Vector2(-1389, -1593)
 position = Vector2(-1730, -1593)
 
 [node name="Obstacle17" parent="Obstacles" unique_id=1999881617 instance=ExtResource("5_w72gx")]
-position = Vector2(-1629, 884)
+position = Vector2(-1565, 884)
 
 [node name="Obstacle18" parent="Obstacles" unique_id=1998449913 instance=ExtResource("5_w72gx")]
-position = Vector2(-1629, 459)
+position = Vector2(-1565, 459)
 
 [node name="Obstacle21" parent="Obstacles" unique_id=645799863 instance=ExtResource("5_w72gx")]
-position = Vector2(-1629, 8)
+position = Vector2(-1565, 8)
 
 [node name="Obstacle22" parent="Obstacles" unique_id=603675935 instance=ExtResource("5_w72gx")]
-position = Vector2(-1629, -417)
+position = Vector2(-1565, -417)
 
 [node name="Obstacle23" parent="Obstacles" unique_id=1020476226 instance=ExtResource("5_w72gx")]
 position = Vector2(1817, 459)
@@ -131,10 +131,10 @@ position = Vector2(2541, -1673)
 position = Vector2(2541, -2098)
 
 [node name="Obstacle19" parent="Obstacles" unique_id=650177037 instance=ExtResource("5_w72gx")]
-position = Vector2(-913, 884)
+position = Vector2(-849, 884)
 
 [node name="Obstacle20" parent="Obstacles" unique_id=2097392199 instance=ExtResource("5_w72gx")]
-position = Vector2(-913, 459)
+position = Vector2(-849, 459)
 
 [node name="Obstacle33" parent="Obstacles" unique_id=1996506375 instance=ExtResource("10_w72gx")]
 position = Vector2(-3, -410)
@@ -143,10 +143,12 @@ position = Vector2(-3, -410)
 rat_nav_region = NodePath("../RatNavigationRegion")
 
 [node name="PersonNavigationRegion" type="NavigationRegion2D" parent="." unique_id=1572798828]
+visible = false
 position = Vector2(325, 553)
 navigation_polygon = SubResource("NavigationPolygon_riqys")
 
 [node name="RatNavigationRegion" type="NavigationRegion2D" parent="." unique_id=1511556583]
+visible = false
 position = Vector2(325, 553)
 navigation_polygon = SubResource("NavigationPolygon_riqys")
 
@@ -182,6 +184,7 @@ position = Vector2(1061, 125)
 position = Vector2(1038, 604)
 
 [node name="Rats" type="Node2D" parent="." unique_id=1229121753]
+y_sort_enabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1914758041]
 occluder = SubResource("OccluderPolygon2D_g4v7s")
