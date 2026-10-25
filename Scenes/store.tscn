@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://j48pi1tis2ds" path="res://Scenes/player.tscn" id="1_c176v"]
 [ext_resource type="Script" uid="uid://bsnkfxu673wiy" path="res://Scripts/store.gd" id="1_x7ts4"]
-[ext_resource type="Texture2D" uid="uid://2nt22cmrp3n4" path="res://artwork_1.jpg" id="2_a54sg"]
 [ext_resource type="PackedScene" uid="uid://dna4somx52x48" path="res://Scenes/walls.tscn" id="2_f3gkj"]
 [ext_resource type="PackedScene" uid="uid://davspuhu65btt" path="res://Scenes/state.tscn" id="3_s3f3m"]
 [ext_resource type="Texture2D" uid="uid://duoxcqsxxlm6y" path="res://Sprites/MapStuff/Tile.png" id="3_w72gx"]
@@ -168,6 +167,9 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 state = NodePath("../../State")
+log_duration = 2.5
+fade_duration = 0.5
+max_log_entries = 6
 
 [node name="Person" parent="." unique_id=1143240551 node_paths=PackedStringArray("player", "patrol_route") groups=["enemies"] instance=ExtResource("5_jdgcu")]
 position = Vector2(963, 279)
