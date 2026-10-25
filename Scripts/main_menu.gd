@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_play_pressed() -> void:
-	var game = preload("res://Scenes/store.tscn").instantiate();
+	var game = preload("res://Scenes/tutorial.tscn").instantiate();
 	
 	get_tree().change_scene_to_node(game)
 

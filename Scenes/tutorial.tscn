@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c4ykof0wl3uu3"]
 
+[ext_resource type="Script" uid="uid://ijbqmjyvhrm8" path="res://Scripts/tutorial.gd" id="1_feyax"]
 [ext_resource type="Texture2D" uid="uid://biapmrbupkfdd" path="res://Sprites/UI/tutorial.png" id="1_ka2pi"]
 
 [node name="Tutorial" type="Control" unique_id=230619592]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_feyax")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1799440647]
 layout_mode = 1
@@ -26,3 +28,21 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 texture = ExtResource("1_ka2pi")
 expand_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer" unique_id=60714987]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=974628524]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 99.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=2019296570]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Click to start"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
