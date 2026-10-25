@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dgposcvvwbmv1" path="res://Scripts/ui.gd" id="1_fyqef"]
 [ext_resource type="Texture2D" uid="uid://b7gw87rwcdcs" path="res://Sprites/StaminaBar/stamina bar empty.png" id="2_nf4gj"]
 [ext_resource type="Texture2D" uid="uid://whkbmu80hx7u" path="res://Sprites/StaminaBar/stamina bar full.png" id="3_2246s"]
+[ext_resource type="FontFile" uid="uid://uc16sax7xgpb" path="res://Fonts/alarm clock.ttf" id="4_q7pk6"]
+[ext_resource type="FontFile" uid="uid://d2b2vedkpuo8v" path="res://Fonts/thereza.ttf" id="5_m78vo"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nf4gj"]
 light_mode = 1
@@ -51,34 +53,46 @@ use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.8745098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q7pk6")
 theme_override_font_sizes/font_size = 50
 text = "12:00"
 horizontal_alignment = 1
 
 [node name="StoreCanvas" type="CanvasLayer" parent="." unique_id=1821105398]
 
+[node name="dup" type="RichTextLabel" parent="StoreCanvas" unique_id=1581231253]
+visible = false
+offset_left = 873.0
+offset_top = 648.0
+offset_right = 1238.0
+offset_bottom = 671.0
+theme_override_colors/default_color = Color(0.31902623, 0.6389857, 0.3362353, 1)
+theme_override_fonts/normal_font = ExtResource("5_m78vo")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]+ Meow [/rainbow]"
+fit_content = true
+
 [node name="ScoreLog" type="Control" parent="StoreCanvas" unique_id=1202976100]
 layout_mode = 3
-anchor_left = 0.84900004
-anchor_top = 0.739
-anchor_right = 0.96700007
+anchor_left = 0.762
+anchor_top = 0.647
+anchor_right = 0.99000007
 anchor_bottom = 0.93200004
-offset_left = 0.27990723
-offset_top = -0.08001709
-offset_right = 0.23986816
+offset_left = -27.360046
+offset_top = 0.16000366
+offset_right = -0.20007324
 offset_bottom = -0.040039063
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Entries" type="VBoxContainer" parent="StoreCanvas/ScoreLog" unique_id=727634055]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -150.0
-offset_right = -240.0
-offset_bottom = -150.0
+offset_left = -42.0
+offset_top = -473.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 2

@@ -17,14 +17,12 @@ func _ready():
 	state.connect("score_added", _on_score_added)
 
 func _on_score_added(points: int, reason: String) -> void:
-	var entry := Label.new()
+	var entry := $StoreCanvas/dup.duplicate()
 	
 	entry.text = "+%d  %s" % [points, reason]
-	entry.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	
-	entry.add_theme_color_override("font_color",Color(0.6, 1.0, 0.6))
-	
+		
 	log_entries.add_child(entry)
+	entry.show()
 	
 	while log_entries.get_child_count() > max_log_entries:
 		var oldest = log_entries.get_child(0)

@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		$Meow.play()
 		meows+=1
 		is_meowing = true
-		state.increase_score(1, "Meowed!")
+		state.increase_score(1, "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]Meowed![/rainbow]")
 		quiet.start()
 	
 	SPEED = 600.0 if sprinting else 300.0
@@ -130,6 +130,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		queue_free()
 	
 	if body.is_in_group("rats"):
+		state.increase_score(5, "[shake rate=20.0 level=5 connected=1][color=red]Caught a rat![/color][/shake]")
 		state.increase_score(5, "Caught a rat!")
 		mice_ate+=1
 		body.queue_free()
