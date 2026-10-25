@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sg8f75ahkotl" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cekx1ejhrux7p" path="res://Sprites/Cat/Cat_sheet.png" id="2_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://d3gb7obsqou7k" path="res://white.jpg" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://dbt67cwnfgl0f" path="res://light.png" id="3_6t5aa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f3gkj"]
 light_mode = 1
@@ -66,12 +66,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1816450137 node_paths=PackedStringArray("sprite", "camera")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 188.38258
+
+[node name="Player" type="CharacterBody2D" unique_id=1816450137 node_paths=PackedStringArray("sprite", "camera", "noise_area")]
 material = SubResource("CanvasItemMaterial_f3gkj")
 collision_mask = 15
 script = ExtResource("1_cvnsp")
 sprite = NodePath("Sprite")
 camera = NodePath("Camera")
+noise_area = NodePath("NoiseArea")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=965691915]
 shape = SubResource("RectangleShape2D_57qmd")
@@ -102,6 +106,7 @@ scale = Vector2(2.00875, 1.6250001)
 energy = 0.54
 shadow_enabled = true
 texture = ExtResource("3_6t5aa")
+texture_scale = 10.0
 
 [node name="StaminaTick" type="Timer" parent="." unique_id=1533607101]
 wait_time = 0.05
@@ -113,7 +118,20 @@ one_shot = true
 
 [node name="StaminaCooldown" type="Timer" parent="." unique_id=42243586]
 
+[node name="Quiet" type="Timer" parent="." unique_id=1135702160]
+one_shot = true
+
+[node name="NoiseArea" type="Area2D" parent="." unique_id=1089766542]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoiseArea" unique_id=450175552]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_g4v7s")
+debug_color = Color(0.84796405, 0.0009481758, 0.9061362, 0.41960785)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="StaminaTick" to="." method="_on_stamina_tick_timeout"]
 [connection signal="timeout" from="StaminaRecover" to="." method="_on_stamina_recover_timeout"]
 [connection signal="timeout" from="StaminaCooldown" to="." method="_on_stamina_cooldown_timeout"]
+[connection signal="timeout" from="Quiet" to="." method="_on_quiet_timeout"]

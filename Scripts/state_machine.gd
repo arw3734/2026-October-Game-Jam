@@ -109,8 +109,26 @@ func can_see_player() -> bool:
 	
 	return hit.is_empty()
 
+
+func can_hear_player() -> bool:
+	if not is_instance_valid(player):
+		return false
+	
+	var noise_area: Area2D = player.get_node_or_null("NoiseArea")
+	
+	if noise_area == null:
+		return false
+	
+	if player.velocity.length() < 10.0:
+		return false
+	
+	return noise_area.overlaps_body(person)
+
+func can_detect_player() -> bool:
+	return can_see_player() or can_hear_player()
+	
 func update_patrol():
-	if can_see_player():
+	if can_detect_player():
 		swap_state("aggro")
 		return
 	
@@ -137,7 +155,7 @@ func advance_patrol():
 	set_patrol_target()
 
 func update_aggro(delta: float):
-	if can_see_player():
+	if can_detect_player():
 		lost_sight_timer = 0.0
 		last_known_position = player.global_position
 		
@@ -153,7 +171,7 @@ func update_aggro(delta: float):
 			swap_state("searching")
 
 func update_searching(delta: float):
-	if can_see_player():
+	if can_detect_player():
 		swap_state("aggro")
 		return
 	

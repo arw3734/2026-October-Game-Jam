@@ -7,14 +7,17 @@ var SPEED = 300.0
 @export var state: Node
 @export var sprite: AnimatedSprite2D
 @export var camera: Camera2D
+@export var noise_area: Area2D
 var direction: Vector2
 var stamina = 100
 var can_run: bool = true
 var ticking: bool = false
+var is_meowing: bool = false
 
 @onready var stamina_ticker = $StaminaTick
 @onready var stamina_cooldown = $StaminaCooldown
 @onready var stamina_recover = $StaminaRecover
+@onready var quiet = $Quiet
 func _ready():
 	camera.enabled = true
 
@@ -26,16 +29,24 @@ func _physics_process(delta: float) -> void:
 		and can_run
 	)
 	
-	SPEED = 450.0 if sprinting else 300.0
+	if Input.is_action_pressed("meow"):
+		noise_area.scale = Vector2(5,5)
+		# MEOW SFX
+		is_meowing = true
+		quiet.start()
+	
+	SPEED = 600.0 if sprinting else 300.0
 	
 	if sprinting:
 		stamina_recover.stop()
-		
+		noise_area.scale = Vector2(1.5,1.5)
 		if not ticking:
 			stamina_ticker.start()
 			ticking = true
 		
 	else:
+		if not is_meowing:
+			noise_area.scale = Vector2(1,1)
 		stamina_ticker.stop()
 		ticking = false
 		
@@ -54,7 +65,11 @@ func _physics_process(delta: float) -> void:
 	
 	if (direction.x || direction.y) and sprite.animation != "walk":
 		$Sprite.play("walk")
+		if not sprinting and not is_meowing:
+			noise_area.scale = Vector2(1,1)
 	elif (!direction):
+		if not is_meowing:
+			noise_area.scale = Vector2(0.5,0.5)
 		$Sprite.play("idle")
 	
 	if direction.x:
@@ -98,3 +113,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("rats"):
 		state.increase_score(5)
 		body.queue_free()
+
+
+func _on_quiet_timeout() -> void:
+	noise_area.scale = Vector2(1,1)
+	is_meowing = false
